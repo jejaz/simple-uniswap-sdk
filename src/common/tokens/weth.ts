@@ -60,6 +60,17 @@ export class WETHContract {
     };
   }
 
+  //TODO: change address
+  public static POLYGON(): Token {
+    return {
+      chainId: ChainId.POLYGON,
+      contractAddress: '0xd0A1E359811322d97991E03f863a0C30C2cF029C',
+      decimals: 18,
+      symbol: WETH_SYMBOL,
+      name: WETH_NAME,
+    };
+  }
+
   /**
    * Get WETH token info by chain id
    * @param chainId The chain id
@@ -76,6 +87,8 @@ export class WETHContract {
         return this.GORLI();
       case ChainId.KOVAN:
         return this.KOVAN();
+      case ChainId.KOVAN:
+        return this.POLYGON();
       default:
         throw new UniswapError(
           `${chainId} is not allowed`,
