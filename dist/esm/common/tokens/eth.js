@@ -92,6 +92,16 @@ var ETH = /** @class */ (function () {
             name: ETH_NAME,
         };
     };
+    //TODO: change contract address
+    ETH.POLYGON = function () {
+        return {
+            chainId: ChainId.POLYGON,
+            contractAddress: appendEthToContractAddress('0xd0A1E359811322d97991E03f863a0C30C2cF029C'),
+            decimals: 18,
+            symbol: ETH_SYMBOL,
+            name: ETH_NAME,
+        };
+    };
     /**
      * Get ETH token info by chain id
      * @param chainId The chain id
@@ -112,6 +122,8 @@ var ETH = /** @class */ (function () {
                 return this.GORLI();
             case ChainId.KOVAN:
                 return this.KOVAN();
+            case ChainId.POLYGON:
+                return this.POLYGON();
             default:
                 throw new UniswapError("".concat(chainId, " is not allowed"), ErrorCodes.tokenChainIdContractDoesNotExist);
         }
