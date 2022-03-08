@@ -107,6 +107,19 @@ export class ETH {
     };
   }
 
+  //TODO: change contract address
+  public static POLYGON(): Token {
+    return {
+      chainId: ChainId.POLYGON,
+      contractAddress: appendEthToContractAddress(
+          '0xd0A1E359811322d97991E03f863a0C30C2cF029C'
+      ),
+      decimals: 18,
+      symbol: ETH_SYMBOL,
+      name: ETH_NAME,
+    };
+  }
+
   /**
    * Get ETH token info by chain id
    * @param chainId The chain id
@@ -134,6 +147,8 @@ export class ETH {
         return this.GORLI();
       case ChainId.KOVAN:
         return this.KOVAN();
+      case ChainId.POLYGON:
+        return this.POLYGON();
       default:
         throw new UniswapError(
           `${chainId} is not allowed`,
