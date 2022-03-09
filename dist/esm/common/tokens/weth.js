@@ -58,7 +58,7 @@ var WETHContract = /** @class */ (function () {
     WETHContract.POLYGON = function () {
         return {
             chainId: ChainId.POLYGON,
-            contractAddress: '0xd0A1E359811322d97991E03f863a0C30C2cF029C',
+            contractAddress: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
             decimals: 18,
             symbol: WETH_SYMBOL,
             name: WETH_NAME,
@@ -80,7 +80,7 @@ var WETHContract = /** @class */ (function () {
                 return this.GORLI();
             case ChainId.KOVAN:
                 return this.KOVAN();
-            case ChainId.KOVAN:
+            case ChainId.POLYGON:
                 return this.POLYGON();
             default:
                 throw new UniswapError("".concat(chainId, " is not allowed"), ErrorCodes.tokenChainIdContractDoesNotExist);
