@@ -60,7 +60,6 @@ export class WETHContract {
     };
   }
 
-  //TODO: change address
   public static POLYGON(): Token {
     return {
       chainId: ChainId.POLYGON,

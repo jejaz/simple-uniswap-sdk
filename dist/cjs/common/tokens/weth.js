@@ -57,7 +57,6 @@ var WETHContract = /** @class */ (function () {
             name: exports.WETH_NAME,
         };
     };
-    //TODO: change address
     WETHContract.POLYGON = function () {
         return {
             chainId: chain_id_1.ChainId.POLYGON,
