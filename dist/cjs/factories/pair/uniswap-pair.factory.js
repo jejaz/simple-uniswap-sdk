@@ -194,9 +194,12 @@ var UniswapPairFactory = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         this.destroy();
+                        console.log('trade sdk');
+                        console.log(amount);
                         return [4 /*yield*/, this.executeTradePath(new bignumber_js_1.default(amount), direction)];
                     case 1:
                         trade = _a.sent();
+                        console.log(trade);
                         this._currentTradeContext = this.buildCurrentTradeContext(trade);
                         this.watchTradePrice();
                         return [2 /*return*/, trade];
