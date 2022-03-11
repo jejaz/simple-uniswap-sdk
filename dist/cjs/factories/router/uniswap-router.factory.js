@@ -188,9 +188,11 @@ var UniswapRouterFactory = /** @class */ (function () {
                             });
                         }
                         allPossibleRoutes = { v2: [], v3: [] };
+                        console.log('contract call context' + contractCallContext);
                         return [4 /*yield*/, this._multicall.call(contractCallContext)];
                     case 1:
                         contractCallResults = _a.sent();
+                        console.log('result' + contractCallResults);
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v2)) {
                             results = contractCallResults.results[uniswap_version_1.UniswapVersion.v2];
                             availablePairs = results.callsReturnContext.filter(function (c) {

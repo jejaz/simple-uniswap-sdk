@@ -202,8 +202,9 @@ export class UniswapRouterFactory {
 
     const allPossibleRoutes: AllPossibleRoutes = { v2: [], v3: [] };
 
+    console.log('contract call context' + contractCallContext);
     const contractCallResults = await this._multicall.call(contractCallContext);
-
+    console.log('result' + contractCallResults)
     if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
       const results = contractCallResults.results[UniswapVersion.v2];
 
