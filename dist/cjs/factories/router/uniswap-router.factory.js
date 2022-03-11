@@ -106,6 +106,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         findPairs = [];
+                        console.log('enter get all possible routes');
                         if (!this._settings.disableMultihops) {
                             findPairs = [
                                 this.mainCurrenciesPairsForFromToken,
@@ -123,6 +124,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                             // multihops turned off so only go direct
                             findPairs = [[[this._fromToken, this._toToken]]];
                         }
+                        console.log('find pairs' + findPairs);
                         contractCallContext = [];
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v2)) {
                             contractCallContext.push({

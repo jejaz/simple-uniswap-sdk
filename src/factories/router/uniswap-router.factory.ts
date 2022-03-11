@@ -104,6 +104,7 @@ export class UniswapRouterFactory {
   public async getAllPossibleRoutes(): Promise<AllPossibleRoutes> {
     let findPairs: Token[][][] = [];
 
+    console.log('enter get all possible routes');
     if (!this._settings.disableMultihops) {
       findPairs = [
         this.mainCurrenciesPairsForFromToken,
@@ -121,6 +122,7 @@ export class UniswapRouterFactory {
       findPairs = [[[this._fromToken, this._toToken]]];
     }
 
+    console.log('find pairs' + findPairs)
     // console.log(JSON.stringify(findPairs, null, 4));
 
     const contractCallContext: ContractCallContext[] = [];
