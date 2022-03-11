@@ -188,8 +188,6 @@ var UniswapPairFactory = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         this.destroy();
-                        console.log('trade sdk');
-                        console.log(amount);
                         return [4 /*yield*/, this.executeTradePath(new BigNumber(amount), direction)];
                     case 1:
                         trade = _a.sent();

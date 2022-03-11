@@ -400,6 +400,7 @@ export class UniswapRouterFactory {
       direction
     );
 
+    console.log('all routes' + allRoutes)
     if (allRoutes.length === 0) {
       throw new UniswapError(
         `No routes found for ${this._fromToken.symbol} > ${this._toToken.symbol}`,
@@ -413,6 +414,7 @@ export class UniswapRouterFactory {
       direction
     );
 
+    console.log('allowance and balance ' + allowanceAndBalances)
     if (
       this._ethersProvider.provider.network.chainId === ChainId.MAINNET &&
       this._settings.gasSettings &&

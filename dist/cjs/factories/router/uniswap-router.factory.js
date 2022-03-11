@@ -331,12 +331,14 @@ var UniswapRouterFactory = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.getAllPossibleRoutesWithQuotes(amountToTrade, direction)];
                     case 1:
                         allRoutes = _a.sent();
+                        console.log('all routes' + allRoutes);
                         if (allRoutes.length === 0) {
                             throw new uniswap_error_1.UniswapError("No routes found for ".concat(this._fromToken.symbol, " > ").concat(this._toToken.symbol), error_codes_1.ErrorCodes.noRoutesFound);
                         }
                         return [4 /*yield*/, this.hasEnoughAllowanceAndBalance(amountToTrade, allRoutes[0], direction)];
                     case 2:
                         allowanceAndBalances = _a.sent();
+                        console.log('allowance and balance ' + allowanceAndBalances);
                         if (!(this._ethersProvider.provider.network.chainId === chain_id_1.ChainId.MAINNET &&
                             this._settings.gasSettings &&
                             allowanceAndBalances.enoughBalance)) return [3 /*break*/, 4];

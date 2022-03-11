@@ -163,8 +163,6 @@ export class UniswapPairFactory {
   ): Promise<TradeContext> {
     this.destroy();
 
-    console.log('trade sdk')
-    console.log(amount)
     const trade = await this.executeTradePath(new BigNumber(amount), direction);
     console.log(trade)
     this._currentTradeContext = this.buildCurrentTradeContext(trade);
