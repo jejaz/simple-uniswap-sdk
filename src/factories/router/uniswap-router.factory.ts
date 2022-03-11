@@ -395,6 +395,7 @@ export class UniswapRouterFactory {
     amountToTrade: BigNumber,
     direction: TradeDirection
   ): Promise<BestRouteQuotes> {
+    console.log('enter find best route')
     let allRoutes = await this.getAllPossibleRoutesWithQuotes(
       amountToTrade,
       direction

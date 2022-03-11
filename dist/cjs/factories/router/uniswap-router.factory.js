@@ -328,7 +328,9 @@ var UniswapRouterFactory = /** @class */ (function () {
             var allRoutes, allowanceAndBalances;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAllPossibleRoutesWithQuotes(amountToTrade, direction)];
+                    case 0:
+                        console.log('enter find best route');
+                        return [4 /*yield*/, this.getAllPossibleRoutesWithQuotes(amountToTrade, direction)];
                     case 1:
                         allRoutes = _a.sent();
                         console.log('all routes' + allRoutes);

@@ -386,6 +386,7 @@ export class UniswapPairFactory {
     baseConvertRequest: BigNumber,
     direction: TradeDirection
   ): Promise<TradeContext> {
+    console.log('enter find best price and path erc 20 to erc 20')
     const bestRouteQuotes = await this._routes.findBestRoute(
       baseConvertRequest,
       direction
