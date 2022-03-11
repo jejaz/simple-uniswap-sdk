@@ -147,8 +147,6 @@ var UniswapPairFactory = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        console.log("trade path");
-                        console.log(this.tradePath());
                         _a = this.tradePath();
                         switch (_a) {
                             case TradePath.erc20ToEth: return [3 /*break*/, 1];
@@ -435,6 +433,7 @@ var UniswapPairFactory = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this._routes.findBestRoute(baseConvertRequest, direction)];
                     case 1:
                         bestRouteQuotes = _c.sent();
+                        console.log(bestRouteQuotes);
                         bestRouteQuote = bestRouteQuotes.bestRouteQuote;
                         _b = {
                             uniswapVersion: bestRouteQuote.uniswapVersion,
