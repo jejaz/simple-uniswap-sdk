@@ -188,7 +188,8 @@ var UniswapRouterFactory = /** @class */ (function () {
                             });
                         }
                         allPossibleRoutes = { v2: [], v3: [] };
-                        console.log('contract call context' + contractCallContext[0] + contractCallContext[1]);
+                        console.log('contract call context' + JSON.stringify(contractCallContext[0]) + JSON.stringify(contractCallContext[1]));
+                        console.log('multicall' + this._multicall);
                         return [4 /*yield*/, this._multicall.call(contractCallContext)];
                     case 1:
                         contractCallResults = _a.sent();
