@@ -310,9 +310,13 @@ export class UniswapRouterFactory {
     amountToTrade: BigNumber,
     direction: TradeDirection
   ): Promise<RouteQuote[]> {
+    console.log('enter get all possible routes with quotes')
     const tradeAmount = this.formatAmountToTrade(amountToTrade, direction);
 
+    console.log('trade amount' + tradeAmount)
     const routes = await this.getAllPossibleRoutes();
+
+    console.log('routes' + routes)
 
     const contractCallContext: ContractCallContext<RouteContext[]>[] = [];
     if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {

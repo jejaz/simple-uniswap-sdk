@@ -251,10 +251,13 @@ var UniswapRouterFactory = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        console.log('enter get all possible routes with quotes');
                         tradeAmount = this.formatAmountToTrade(amountToTrade, direction);
+                        console.log('trade amount' + tradeAmount);
                         return [4 /*yield*/, this.getAllPossibleRoutes()];
                     case 1:
                         routes = _a.sent();
+                        console.log('routes' + routes);
                         contractCallContext = [];
                         if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
                             contractCallContext.push({
