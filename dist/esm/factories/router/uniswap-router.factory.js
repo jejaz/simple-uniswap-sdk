@@ -121,6 +121,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                         console.log('find pairs' + findPairs);
                         contractCallContext = [];
                         if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
+                            console.log('version 2');
                             contractCallContext.push({
                                 reference: UniswapVersion.v2,
                                 contractAddress: uniswapContracts.v2.getPairAddress(this._settings.cloneUniswapContractDetails),
@@ -142,6 +143,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                                 }
                             }
                         }
+                        console.log('after contract call context');
                         // for now v3 quotes will just be direct aka UNI > AAVE etc!
                         if (this._settings.uniswapVersions.includes(UniswapVersion.v3)) {
                             contractCallContext.push({
