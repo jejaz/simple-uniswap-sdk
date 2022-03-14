@@ -104,7 +104,6 @@ export class UniswapRouterFactory {
   public async getAllPossibleRoutes(): Promise<AllPossibleRoutes> {
     let findPairs: Token[][][] = [];
 
-    console.log('enter get all possible routes');
     if (!this._settings.disableMultihops) {
       findPairs = [
         this.mainCurrenciesPairsForFromToken,
@@ -122,13 +121,11 @@ export class UniswapRouterFactory {
       findPairs = [[[this._fromToken, this._toToken]]];
     }
 
-    console.log('find pairs' + findPairs)
     // console.log(JSON.stringify(findPairs, null, 4));
 
     const contractCallContext: ContractCallContext[] = [];
 
     if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
-      console.log('version 2')
       contractCallContext.push({
         reference: UniswapVersion.v2,
         contractAddress: uniswapContracts.v2.getPairAddress(
@@ -159,7 +156,6 @@ export class UniswapRouterFactory {
       }
     }
 
-    console.log('after contract call context')
     // for now v3 quotes will just be direct aka UNI > AAVE etc!
     if (this._settings.uniswapVersions.includes(UniswapVersion.v3)) {
       contractCallContext.push({
@@ -202,10 +198,7 @@ export class UniswapRouterFactory {
 
     const allPossibleRoutes: AllPossibleRoutes = { v2: [], v3: [] };
 
-    console.log('contract call context' + JSON.stringify(contractCallContext[0]) + JSON.stringify(contractCallContext[1]));
-    console.log('multicall' + this._multicall)
     const contractCallResults = await this._multicall.call(contractCallContext);
-    console.log('result' + contractCallResults)
     if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
       const results = contractCallResults.results[UniswapVersion.v2];
 
@@ -316,13 +309,10 @@ export class UniswapRouterFactory {
     amountToTrade: BigNumber,
     direction: TradeDirection
   ): Promise<RouteQuote[]> {
-    console.log('enter get all possible routes with quotes')
     const tradeAmount = this.formatAmountToTrade(amountToTrade, direction);
 
-    console.log('trade amount' + tradeAmount)
     const routes = await this.getAllPossibleRoutes();
 
-    console.log('routes' + routes)
 
     const contractCallContext: ContractCallContext<RouteContext[]>[] = [];
     if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
@@ -405,13 +395,11 @@ export class UniswapRouterFactory {
     amountToTrade: BigNumber,
     direction: TradeDirection
   ): Promise<BestRouteQuotes> {
-    console.log('enter find best route')
     let allRoutes = await this.getAllPossibleRoutesWithQuotes(
       amountToTrade,
       direction
     );
 
-    console.log('all routes' + allRoutes)
     if (allRoutes.length === 0) {
       throw new UniswapError(
         `No routes found for ${this._fromToken.symbol} > ${this._toToken.symbol}`,
@@ -425,7 +413,6 @@ export class UniswapRouterFactory {
       direction
     );
 
-    console.log('allowance and balance ' + allowanceAndBalances)
     if (
       this._ethersProvider.provider.network.chainId === ChainId.MAINNET &&
       this._settings.gasSettings &&
