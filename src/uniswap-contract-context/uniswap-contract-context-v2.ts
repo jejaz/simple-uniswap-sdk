@@ -4,17 +4,17 @@ export class UniswapContractContextV2 {
   /**
    * The uniswap router address
    */
-  public static routerAddress = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D';
+  public static routerAddress = '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506';
 
   /**
    * The uniswap factory address
    */
-  public static factoryAddress = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f';
+  public static factoryAddress = '0xc35DADB65012eC5796536bD9864eD8773aBc74C4';
 
   /**
    * The uniswap pair address
    */
-  public static pairAddress = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f';
+  public static pairAddress = '0xc35DADB65012eC5796536bD9864eD8773aBc74C4';
 
   /**
    * Uniswap v2 router
