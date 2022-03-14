@@ -106,7 +106,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         findPairs = [];
-                        console.log('enter get all possible routes');
                         if (!this._settings.disableMultihops) {
                             findPairs = [
                                 this.mainCurrenciesPairsForFromToken,
@@ -124,10 +123,8 @@ var UniswapRouterFactory = /** @class */ (function () {
                             // multihops turned off so only go direct
                             findPairs = [[[this._fromToken, this._toToken]]];
                         }
-                        console.log('find pairs' + findPairs);
                         contractCallContext = [];
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v2)) {
-                            console.log('version 2');
                             contractCallContext.push({
                                 reference: uniswap_version_1.UniswapVersion.v2,
                                 contractAddress: get_uniswap_contracts_1.uniswapContracts.v2.getPairAddress(this._settings.cloneUniswapContractDetails),
@@ -149,7 +146,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                                 }
                             }
                         }
-                        console.log('after contract call context');
                         // for now v3 quotes will just be direct aka UNI > AAVE etc!
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v3)) {
                             contractCallContext.push({
@@ -188,12 +184,9 @@ var UniswapRouterFactory = /** @class */ (function () {
                             });
                         }
                         allPossibleRoutes = { v2: [], v3: [] };
-                        console.log('contract call context' + JSON.stringify(contractCallContext[0]) + JSON.stringify(contractCallContext[1]));
-                        console.log('multicall' + this._multicall);
                         return [4 /*yield*/, this._multicall.call(contractCallContext)];
                     case 1:
                         contractCallResults = _a.sent();
-                        console.log('result' + contractCallResults);
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v2)) {
                             results = contractCallResults.results[uniswap_version_1.UniswapVersion.v2];
                             availablePairs = results.callsReturnContext.filter(function (c) {
@@ -264,13 +257,10 @@ var UniswapRouterFactory = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log('enter get all possible routes with quotes');
                         tradeAmount = this.formatAmountToTrade(amountToTrade, direction);
-                        console.log('trade amount' + tradeAmount);
                         return [4 /*yield*/, this.getAllPossibleRoutes()];
                     case 1:
                         routes = _a.sent();
-                        console.log('routes' + routes);
                         contractCallContext = [];
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v2)) {
                             contractCallContext.push({
@@ -338,19 +328,15 @@ var UniswapRouterFactory = /** @class */ (function () {
             var allRoutes, allowanceAndBalances;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log('enter find best route');
-                        return [4 /*yield*/, this.getAllPossibleRoutesWithQuotes(amountToTrade, direction)];
+                    case 0: return [4 /*yield*/, this.getAllPossibleRoutesWithQuotes(amountToTrade, direction)];
                     case 1:
                         allRoutes = _a.sent();
-                        console.log('all routes' + allRoutes);
                         if (allRoutes.length === 0) {
                             throw new uniswap_error_1.UniswapError("No routes found for ".concat(this._fromToken.symbol, " > ").concat(this._toToken.symbol), error_codes_1.ErrorCodes.noRoutesFound);
                         }
                         return [4 /*yield*/, this.hasEnoughAllowanceAndBalance(amountToTrade, allRoutes[0], direction)];
                     case 2:
                         allowanceAndBalances = _a.sent();
-                        console.log('allowance and balance ' + allowanceAndBalances);
                         if (!(this._ethersProvider.provider.network.chainId === chain_id_1.ChainId.MAINNET &&
                             this._settings.gasSettings &&
                             allowanceAndBalances.enoughBalance)) return [3 /*break*/, 4];
