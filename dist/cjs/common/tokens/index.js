@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WETHContract = exports.USDT = exports.USDC = exports.turnTokenIntoEthForResponse = exports.removeEthFromContractAddress = exports.isNativeEth = exports.ETH = exports.appendEthToContractAddress = exports.DAI = exports.COMP = void 0;
+exports.WETHContract = exports.MATIC = exports.USDT = exports.USDC = exports.turnTokenIntoEthForResponse = exports.removeEthFromContractAddress = exports.isNativeEth = exports.ETH = exports.appendEthToContractAddress = exports.DAI = exports.COMP = void 0;
 var comp_1 = require("./comp");
 Object.defineProperty(exports, "COMP", { enumerable: true, get: function () { return comp_1.COMP; } });
 var dai_1 = require("./dai");
@@ -15,5 +15,7 @@ var usdc_1 = require("./usdc");
 Object.defineProperty(exports, "USDC", { enumerable: true, get: function () { return usdc_1.USDC; } });
 var usdt_1 = require("./usdt");
 Object.defineProperty(exports, "USDT", { enumerable: true, get: function () { return usdt_1.USDT; } });
+var matic_1 = require("./matic");
+Object.defineProperty(exports, "MATIC", { enumerable: true, get: function () { return matic_1.MATIC; } });
 var weth_1 = require("./weth");
 Object.defineProperty(exports, "WETHContract", { enumerable: true, get: function () { return weth_1.WETHContract; } });
