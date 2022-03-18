@@ -14,7 +14,7 @@ export class UniswapContractContextV2 {
   /**
    * The uniswap pair address
    */
-  public static pairAddress = '0xc35DADB65012eC5796536bD9864eD8773aBc74C4';
+  public static pairAddress = '0xe3e77171b0cccc2293ea48f0430f75f1a6103f78';
 
   /**
    * Uniswap v2 router
