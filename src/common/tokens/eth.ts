@@ -115,8 +115,8 @@ export class ETH {
           '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619'
       ),
       decimals: 18,
-      symbol: 'MATIC',
-      name: 'Matic',
+      symbol: 'ETH',
+      name: 'Ethers',
     };
   }
 
