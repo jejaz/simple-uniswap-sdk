@@ -12,7 +12,7 @@ var UniswapContractContextV2 = /** @class */ (function () {
     /**
      * The uniswap pair address
      */
-    UniswapContractContextV2.pairAddress = '0xe3e77171b0cccc2293ea48f0430f75f1a6103f78';
+    UniswapContractContextV2.pairAddress = '0xdb982a636807b3acd9fd28a99410b68c2159fb32';
     /**
      * Uniswap v2 router
      */
