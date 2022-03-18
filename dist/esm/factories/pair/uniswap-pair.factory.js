@@ -191,7 +191,6 @@ var UniswapPairFactory = /** @class */ (function () {
                         return [4 /*yield*/, this.executeTradePath(new BigNumber(amount), direction)];
                     case 1:
                         trade = _a.sent();
-                        console.log(trade);
                         this._currentTradeContext = this.buildCurrentTradeContext(trade);
                         this.watchTradePrice();
                         return [2 /*return*/, trade];

@@ -164,7 +164,6 @@ export class UniswapPairFactory {
     this.destroy();
 
     const trade = await this.executeTradePath(new BigNumber(amount), direction);
-    console.log(trade)
     this._currentTradeContext = this.buildCurrentTradeContext(trade);
 
     this.watchTradePrice();
