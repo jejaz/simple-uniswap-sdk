@@ -4,6 +4,7 @@ export declare enum ChainId {
     RINKEBY = 4,
     GÖRLI = 5,
     KOVAN = 42,
-    POLYGON = 80001
+    MUMBAI = 80001,
+    POLYGON = 137
 }
 export declare const ChainNames: Map<number, string>;

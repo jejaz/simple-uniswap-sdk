@@ -5,7 +5,8 @@ export var ChainId;
     ChainId[ChainId["RINKEBY"] = 4] = "RINKEBY";
     ChainId[ChainId["G\u00D6RLI"] = 5] = "G\u00D6RLI";
     ChainId[ChainId["KOVAN"] = 42] = "KOVAN";
-    ChainId[ChainId["POLYGON"] = 80001] = "POLYGON";
+    ChainId[ChainId["MUMBAI"] = 80001] = "MUMBAI";
+    ChainId[ChainId["POLYGON"] = 137] = "POLYGON";
 })(ChainId || (ChainId = {}));
 export var ChainNames = new Map([
     [ChainId.MAINNET, 'mainnet'],
@@ -13,5 +14,6 @@ export var ChainNames = new Map([
     [ChainId.RINKEBY, 'rinkeby'],
     [ChainId.GÖRLI, 'görli'],
     [ChainId.KOVAN, 'kovan'],
-    [ChainId.POLYGON, 'polygon']
+    [ChainId.MUMBAI, 'mumbai'],
+    [ChainId.POLYGON, 'polygon'],
 ]);
