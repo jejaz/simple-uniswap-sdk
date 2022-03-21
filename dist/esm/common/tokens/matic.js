@@ -13,7 +13,7 @@ import { ChainId } from '../../enums/chain-id';
 import { ErrorCodes } from '../errors/error-codes';
 import { UniswapError } from '../errors/uniswap-error';
 import { deepClone } from '../utils/deep-clone';
-var MATIC_PREFIX = '_ETH';
+var MATIC_PREFIX = '_MATIC';
 export var MATIC_SYMBOL = 'MATIC';
 export var MATIC_NAME = 'Matic';
 export var appendEthToContractAddress = function (contractAddress) {
