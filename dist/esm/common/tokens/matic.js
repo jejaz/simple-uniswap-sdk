@@ -50,7 +50,7 @@ var MATIC = /** @class */ (function () {
     MATIC.POLYGON = function () {
         return {
             chainId: ChainId.POLYGON,
-            contractAddress: appendEthToContractAddress('0x0000000000000000000000000000000000001010'),
+            contractAddress: appendEthToContractAddress(''),
             decimals: 18,
             symbol: 'MATIC',
             name: 'Matic',

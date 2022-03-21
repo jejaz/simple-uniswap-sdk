@@ -51,7 +51,7 @@ export class MATIC {
         return {
             chainId: ChainId.POLYGON,
             contractAddress: appendEthToContractAddress(
-                '0x0000000000000000000000000000000000001010'
+                ''
             ),
             decimals: 18,
             symbol: 'MATIC',
