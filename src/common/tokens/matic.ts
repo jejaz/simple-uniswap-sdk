@@ -5,7 +5,7 @@ import { ErrorCodes } from '../errors/error-codes';
 import { UniswapError } from '../errors/uniswap-error';
 import { deepClone } from '../utils/deep-clone';
 
-const MATIC_PREFIX = '';
+const MATIC_PREFIX = '_MATIC';
 export const MATIC_SYMBOL = 'MATIC';
 export const MATIC_NAME = 'Matic';
 
@@ -51,7 +51,7 @@ export class MATIC {
         return {
             chainId: ChainId.POLYGON,
             contractAddress: appendEthToContractAddress(
-                '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'
+                'NO_CONTRACT_ADDRESS'
             ),
             decimals: 18,
             symbol: 'MATIC',

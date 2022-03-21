@@ -16,7 +16,7 @@ var chain_id_1 = require("../../enums/chain-id");
 var error_codes_1 = require("../errors/error-codes");
 var uniswap_error_1 = require("../errors/uniswap-error");
 var deep_clone_1 = require("../utils/deep-clone");
-var MATIC_PREFIX = '';
+var MATIC_PREFIX = '_MATIC';
 exports.MATIC_SYMBOL = 'MATIC';
 exports.MATIC_NAME = 'Matic';
 var appendEthToContractAddress = function (contractAddress) {
@@ -57,7 +57,7 @@ var MATIC = /** @class */ (function () {
     MATIC.POLYGON = function () {
         return {
             chainId: chain_id_1.ChainId.POLYGON,
-            contractAddress: (0, exports.appendEthToContractAddress)('0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'),
+            contractAddress: (0, exports.appendEthToContractAddress)('NO_CONTRACT_ADDRESS'),
             decimals: 18,
             symbol: 'MATIC',
             name: 'Matic',

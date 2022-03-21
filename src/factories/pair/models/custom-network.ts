@@ -17,5 +17,6 @@ export interface CustomNetwork {
     comp?: Token | undefined;
     usdc?: Token | undefined;
     wbtc?: Token | undefined;
+    matic?: Token | undefined;
   };
 }
