@@ -107,16 +107,15 @@ export class ETH {
     };
   }
 
-  //TODO: change contract address
   public static POLYGON(): Token {
     return {
       chainId: ChainId.POLYGON,
       contractAddress: appendEthToContractAddress(
-          '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619'
+          '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'
       ),
       decimals: 18,
-      symbol: 'ETH',
-      name: 'Ethers',
+      symbol: 'MATIC',
+      name: 'matic',
     };
   }
 

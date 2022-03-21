@@ -99,14 +99,13 @@ var ETH = /** @class */ (function () {
             name: exports.ETH_NAME,
         };
     };
-    //TODO: change contract address
     ETH.POLYGON = function () {
         return {
             chainId: chain_id_1.ChainId.POLYGON,
-            contractAddress: (0, exports.appendEthToContractAddress)('0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619'),
+            contractAddress: (0, exports.appendEthToContractAddress)('0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'),
             decimals: 18,
-            symbol: 'ETH',
-            name: 'Ethers',
+            symbol: 'MATIC',
+            name: 'matic',
         };
     };
     /**
