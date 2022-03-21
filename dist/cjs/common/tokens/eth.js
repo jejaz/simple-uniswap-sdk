@@ -102,7 +102,7 @@ var ETH = /** @class */ (function () {
     ETH.POLYGON = function () {
         return {
             chainId: chain_id_1.ChainId.POLYGON,
-            contractAddress: (0, exports.appendEthToContractAddress)(''),
+            contractAddress: (0, exports.appendEthToContractAddress)('0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270'),
             decimals: 18,
             symbol: 'MATIC',
             name: 'matic',
