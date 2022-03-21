@@ -121,7 +121,7 @@ export class ETH {
 
   public static MUMBAI(): Token {
     return {
-      chainId: ChainId.POLYGON,
+      chainId: ChainId.MUMBAI,
       contractAddress: appendEthToContractAddress(
           '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'
       ),
