@@ -119,6 +119,18 @@ export class ETH {
     };
   }
 
+  public static MUMBAI(): Token {
+    return {
+      chainId: ChainId.POLYGON,
+      contractAddress: appendEthToContractAddress(
+          '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'
+      ),
+      decimals: 18,
+      symbol: 'MATIC',
+      name: 'matic',
+    };
+  }
+
   /**
    * Get ETH token info by chain id
    * @param chainId The chain id
@@ -148,6 +160,8 @@ export class ETH {
         return this.KOVAN();
       case ChainId.POLYGON:
         return this.POLYGON();
+      case ChainId.MUMBAI:
+        return this.MUMBAI();
       default:
         throw new UniswapError(
           `${chainId} is not allowed`,

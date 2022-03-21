@@ -101,6 +101,15 @@ var ETH = /** @class */ (function () {
             name: 'matic',
         };
     };
+    ETH.MUMBAI = function () {
+        return {
+            chainId: ChainId.POLYGON,
+            contractAddress: appendEthToContractAddress('0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'),
+            decimals: 18,
+            symbol: 'MATIC',
+            name: 'matic',
+        };
+    };
     /**
      * Get ETH token info by chain id
      * @param chainId The chain id
@@ -123,6 +132,8 @@ var ETH = /** @class */ (function () {
                 return this.KOVAN();
             case ChainId.POLYGON:
                 return this.POLYGON();
+            case ChainId.MUMBAI:
+                return this.MUMBAI();
             default:
                 throw new UniswapError("".concat(chainId, " is not allowed"), ErrorCodes.tokenChainIdContractDoesNotExist);
         }
