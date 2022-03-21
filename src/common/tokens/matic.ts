@@ -5,7 +5,7 @@ import { ErrorCodes } from '../errors/error-codes';
 import { UniswapError } from '../errors/uniswap-error';
 import { deepClone } from '../utils/deep-clone';
 
-const MATIC_PREFIX = '_MATIC';
+const MATIC_PREFIX = '_ETH';
 export const MATIC_SYMBOL = 'MATIC';
 export const MATIC_NAME = 'Matic';
 
