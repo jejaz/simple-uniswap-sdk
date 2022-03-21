@@ -21,7 +21,7 @@ export const removeEthFromContractAddress = (
         .replace(MATIC_PREFIX.toLowerCase(), '');
 };
 
-export const isNativeEth = (contractAddress: string): boolean => {
+export const isNativeMatic = (contractAddress: string): boolean => {
     return contractAddress.includes(MATIC_PREFIX);
 };
 
@@ -51,7 +51,7 @@ export class MATIC {
         return {
             chainId: ChainId.POLYGON,
             contractAddress: appendEthToContractAddress(
-                'NO_CONTRACT_ADDRESS'
+                ''
             ),
             decimals: 18,
             symbol: 'MATIC',

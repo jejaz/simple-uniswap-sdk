@@ -5,7 +5,7 @@ export declare const MATIC_SYMBOL = "MATIC";
 export declare const MATIC_NAME = "Matic";
 export declare const appendEthToContractAddress: (contractAddress: string) => string;
 export declare const removeEthFromContractAddress: (contractAddress: string) => string;
-export declare const isNativeEth: (contractAddress: string) => boolean;
+export declare const isNativeMatic: (contractAddress: string) => boolean;
 export declare const turnTokenIntoEthForResponse: (token: Token, nativeCurrencyInfo: NativeCurrencyInfo | undefined) => Token;
 /**
  * ETH token info

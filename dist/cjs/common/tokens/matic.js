@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MATIC = exports.turnTokenIntoEthForResponse = exports.isNativeEth = exports.removeEthFromContractAddress = exports.appendEthToContractAddress = exports.MATIC_NAME = exports.MATIC_SYMBOL = void 0;
+exports.MATIC = exports.turnTokenIntoEthForResponse = exports.isNativeMatic = exports.removeEthFromContractAddress = exports.appendEthToContractAddress = exports.MATIC_NAME = exports.MATIC_SYMBOL = void 0;
 var chain_id_1 = require("../../enums/chain-id");
 var error_codes_1 = require("../errors/error-codes");
 var uniswap_error_1 = require("../errors/uniswap-error");
@@ -29,10 +29,10 @@ var removeEthFromContractAddress = function (contractAddress) {
         .replace(MATIC_PREFIX.toLowerCase(), '');
 };
 exports.removeEthFromContractAddress = removeEthFromContractAddress;
-var isNativeEth = function (contractAddress) {
+var isNativeMatic = function (contractAddress) {
     return contractAddress.includes(MATIC_PREFIX);
 };
-exports.isNativeEth = isNativeEth;
+exports.isNativeMatic = isNativeMatic;
 var turnTokenIntoEthForResponse = function (token, nativeCurrencyInfo) {
     var clone = (0, deep_clone_1.deepClone)(token);
     // clear down contract address
@@ -57,7 +57,7 @@ var MATIC = /** @class */ (function () {
     MATIC.POLYGON = function () {
         return {
             chainId: chain_id_1.ChainId.POLYGON,
-            contractAddress: (0, exports.appendEthToContractAddress)('NO_CONTRACT_ADDRESS'),
+            contractAddress: (0, exports.appendEthToContractAddress)(''),
             decimals: 18,
             symbol: 'MATIC',
             name: 'Matic',

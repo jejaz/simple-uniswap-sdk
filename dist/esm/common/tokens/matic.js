@@ -24,7 +24,7 @@ export var removeEthFromContractAddress = function (contractAddress) {
         .replace(MATIC_PREFIX, '')
         .replace(MATIC_PREFIX.toLowerCase(), '');
 };
-export var isNativeEth = function (contractAddress) {
+export var isNativeMatic = function (contractAddress) {
     return contractAddress.includes(MATIC_PREFIX);
 };
 export var turnTokenIntoEthForResponse = function (token, nativeCurrencyInfo) {
@@ -50,7 +50,7 @@ var MATIC = /** @class */ (function () {
     MATIC.POLYGON = function () {
         return {
             chainId: ChainId.POLYGON,
-            contractAddress: appendEthToContractAddress('NO_CONTRACT_ADDRESS'),
+            contractAddress: appendEthToContractAddress(''),
             decimals: 18,
             symbol: 'MATIC',
             name: 'Matic',
