@@ -192,10 +192,11 @@ export class TokensFactory {
       }
     }
 
+    console.log(contractCallContexts);
     const contractCallResults = await this._multicall.call(
       contractCallContexts
     );
-
+    console.log('call ended');
     for (const result in contractCallResults.results) {
       if (result.includes(`_${UniswapVersion.v2}`)) {
         const overridenTokenInfo =
