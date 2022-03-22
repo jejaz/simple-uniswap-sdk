@@ -98,12 +98,12 @@ var UniswapPair = /** @class */ (function () {
      * Create factory to be able to call methods on the 2 tokens
      */
     UniswapPair.prototype.createFactory = function () {
-        var _a, _b, _c;
+        var _a, _b;
         return __awaiter(this, void 0, void 0, function () {
             var chainId, tokensFactory, tokens, uniswapFactoryContext;
             var _this = this;
-            return __generator(this, function (_d) {
-                switch (_d.label) {
+            return __generator(this, function (_c) {
+                switch (_c.label) {
                     case 0:
                         if (((_a = this._uniswapPairContext.settings) === null || _a === void 0 ? void 0 : _a.customNetwork) === undefined) {
                             chainId = this._ethersProvider.network().chainId;
@@ -117,13 +117,12 @@ var UniswapPair = /** @class */ (function () {
                             }
                         }
                         tokensFactory = new TokensFactory(this._ethersProvider, (_b = this._uniswapPairContext.settings) === null || _b === void 0 ? void 0 : _b.customNetwork);
-                        console.log('tokens factory' + ((_c = this._uniswapPairContext.settings) === null || _c === void 0 ? void 0 : _c.customNetwork));
                         return [4 /*yield*/, tokensFactory.getTokens([
                                 this._uniswapPairContext.fromTokenContractAddress,
                                 this._uniswapPairContext.toTokenContractAddress,
                             ])];
                     case 1:
-                        tokens = _d.sent();
+                        tokens = _c.sent();
                         uniswapFactoryContext = {
                             fromToken: tokens.find(function (t) {
                                 return t.contractAddress.toLowerCase() ===

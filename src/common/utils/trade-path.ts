@@ -13,7 +13,6 @@ export function getTradePath(
     fromToken.contractAddress ===
       ETH.info(chainId, customNetworkNativeWrappedTokenInfo).contractAddress
   ) {
-    console.log('eth to erc20')
     return TradePath.ethToErc20;
   }
 
@@ -21,7 +20,6 @@ export function getTradePath(
     toToken.contractAddress ===
      ETH.info(chainId, customNetworkNativeWrappedTokenInfo).contractAddress
   ) {
-    console.log('erc20 to eth')
     return TradePath.erc20ToEth;
   }
 

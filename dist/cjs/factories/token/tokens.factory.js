@@ -202,12 +202,9 @@ var TokensFactory = /** @class */ (function () {
                     case 6:
                         i++;
                         return [3 /*break*/, 1];
-                    case 7:
-                        console.log(contractCallContexts);
-                        return [4 /*yield*/, this._multicall.call(contractCallContexts)];
+                    case 7: return [4 /*yield*/, this._multicall.call(contractCallContexts)];
                     case 8:
                         contractCallResults = _o.sent();
-                        console.log('call ended');
                         for (result in contractCallResults.results) {
                             if (result.includes("_".concat(uniswap_version_1.UniswapVersion.v2))) {
                                 overridenTokenInfo = (_c = contractCallResults.results[result].originalContractCallContext
