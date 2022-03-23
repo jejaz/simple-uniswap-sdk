@@ -1096,6 +1096,8 @@ var UniswapRouterFactory = /** @class */ (function () {
         var transaction = this.buildUpTransactionErc20(uniswapVersion, data);
         switch (uniswapVersion) {
             case UniswapVersion.v2:
+                console.log('call return context ' + callReturnContext.methodParameters[1]);
+                console.log('all tokens' + JSON.stringify(this.allTokens));
                 return {
                     expectedConvertQuote: expectedConvertQuote,
                     expectedConvertQuoteOrTokenAmountInMaxWithSlippage: expectedConvertQuoteOrTokenAmountInMaxWithSlippage,
