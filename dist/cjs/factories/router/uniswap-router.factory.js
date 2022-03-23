@@ -1151,6 +1151,7 @@ var UniswapRouterFactory = /** @class */ (function () {
     UniswapRouterFactory.prototype.buildRouteQuoteForEthToErc20 = function (amountToTrade, callReturnContext, routeContext, direction, uniswapVersion) {
         var _this = this;
         var _a, _b, _c, _d;
+        console.log('beginning of method');
         var convertQuoteUnformatted = this.getConvertQuoteUnformatted(callReturnContext, direction, uniswapVersion);
         var expectedConvertQuote = direction === trade_direction_1.TradeDirection.input
             ? convertQuoteUnformatted

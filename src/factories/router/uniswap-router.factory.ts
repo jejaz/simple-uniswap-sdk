@@ -1639,6 +1639,8 @@ export class UniswapRouterFactory {
     direction: TradeDirection,
     uniswapVersion: UniswapVersion
   ): RouteQuote {
+
+    console.log('beginning of method')
     const convertQuoteUnformatted = this.getConvertQuoteUnformatted(
       callReturnContext,
       direction,
