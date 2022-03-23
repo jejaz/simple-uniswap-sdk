@@ -1031,6 +1031,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                     if (!callReturnContext.success) {
                         continue;
                     }
+                    console.log(tradePath);
                     switch (tradePath) {
                         case trade_path_2.TradePath.ethToErc20:
                             result.push(this.buildRouteQuoteForEthToErc20(amountToTrade, callReturnContext, contractCallReturnContext.originalContractCallContext.context[i], direction, contractCallReturnContext.originalContractCallContext

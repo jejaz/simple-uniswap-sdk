@@ -1434,6 +1434,7 @@ export class UniswapRouterFactory {
             continue;
           }
 
+          console.log(tradePath);
           switch (tradePath) {
             case TradePath.ethToErc20:
               result.push(
