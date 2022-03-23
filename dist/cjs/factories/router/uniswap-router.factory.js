@@ -1170,7 +1170,7 @@ var UniswapRouterFactory = /** @class */ (function () {
         var transaction = this.buildUpTransactionEth(uniswapVersion, direction === trade_direction_1.TradeDirection.input
             ? amountToTrade
             : new bignumber_js_1.default(expectedConvertQuote), data);
-        console.log('call return context' + callReturnContext.methodParameters[1]);
+        console.log('call return context ' + callReturnContext.methodParameters[1]);
         switch (uniswapVersion) {
             case uniswap_version_1.UniswapVersion.v2:
                 return {

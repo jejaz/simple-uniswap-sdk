@@ -1690,7 +1690,7 @@ export class UniswapRouterFactory {
       data
     );
 
-    console.log('call return context' + callReturnContext.methodParameters[1]);
+    console.log('call return context ' + callReturnContext.methodParameters[1]);
     switch (uniswapVersion) {
       case UniswapVersion.v2:
         return {
