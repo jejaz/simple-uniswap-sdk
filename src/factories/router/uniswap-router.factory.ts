@@ -2280,6 +2280,7 @@ export class UniswapRouterFactory {
   }
 
   private get WETHTokenForConnectedNetwork() {
+    console.log('custom network' + this._settings.customNetwork)
     if (this._settings.customNetwork) {
       return this._settings.customNetwork.nativeWrappedTokenInfo;
     }

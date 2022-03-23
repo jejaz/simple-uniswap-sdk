@@ -107,27 +107,29 @@ export class ETH {
     };
   }
 
-  // public static POLYGON(): Token {
-  //   return {
-  //     chainId: ChainId.POLYGON,
-  //     contractAddress: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
-  //     decimals: 18,
-  //     symbol: 'MATIC',
-  //     name: 'matic',
-  //   };
-  // }
-  //
-  // public static MUMBAI(): Token {
-  //   return {
-  //     chainId: ChainId.MUMBAI,
-  //     contractAddress: appendEthToContractAddress(
-  //         '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'
-  //     ),
-  //     decimals: 18,
-  //     symbol: 'MATIC',
-  //     name: 'matic',
-  //   };
-  // }
+  public static POLYGON(): Token {
+    return {
+      chainId: ChainId.POLYGON,
+      contractAddress: appendEthToContractAddress(
+          '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270'
+      ),
+      decimals: 18,
+      symbol: 'MATIC',
+      name: 'matic',
+    };
+  }
+
+  public static MUMBAI(): Token {
+    return {
+      chainId: ChainId.MUMBAI,
+      contractAddress: appendEthToContractAddress(
+          '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'
+      ),
+      decimals: 18,
+      symbol: 'MATIC',
+      name: 'matic',
+    };
+  }
 
   /**
    * Get ETH token info by chain id
@@ -156,10 +158,10 @@ export class ETH {
         return this.GORLI();
       case ChainId.KOVAN:
         return this.KOVAN();
-      // case ChainId.POLYGON:
-      //   return this.POLYGON();
-      // case ChainId.MUMBAI:
-      //   return this.MUMBAI();
+      case ChainId.POLYGON:
+        return this.POLYGON();
+      case ChainId.MUMBAI:
+        return this.MUMBAI();
       default:
         throw new UniswapError(
           `${chainId} is not allowed`,

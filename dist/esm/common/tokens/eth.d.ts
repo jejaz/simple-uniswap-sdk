@@ -16,6 +16,8 @@ export declare class ETH {
     static RINKEBY(): Token;
     static GORLI(): Token;
     static KOVAN(): Token;
+    static POLYGON(): Token;
+    static MUMBAI(): Token;
     /**
      * Get ETH token info by chain id
      * @param chainId The chain id

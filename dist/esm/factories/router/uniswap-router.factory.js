@@ -1639,6 +1639,7 @@ var UniswapRouterFactory = /** @class */ (function () {
     });
     Object.defineProperty(UniswapRouterFactory.prototype, "WETHTokenForConnectedNetwork", {
         get: function () {
+            console.log('custom network' + this._settings.customNetwork);
             if (this._settings.customNetwork) {
                 return this._settings.customNetwork.nativeWrappedTokenInfo;
             }
