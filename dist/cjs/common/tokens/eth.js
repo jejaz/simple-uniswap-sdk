@@ -99,24 +99,27 @@ var ETH = /** @class */ (function () {
             name: exports.ETH_NAME,
         };
     };
-    ETH.POLYGON = function () {
-        return {
-            chainId: chain_id_1.ChainId.POLYGON,
-            contractAddress: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
-            decimals: 18,
-            symbol: 'MATIC',
-            name: 'matic',
-        };
-    };
-    ETH.MUMBAI = function () {
-        return {
-            chainId: chain_id_1.ChainId.MUMBAI,
-            contractAddress: (0, exports.appendEthToContractAddress)('0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'),
-            decimals: 18,
-            symbol: 'MATIC',
-            name: 'matic',
-        };
-    };
+    // public static POLYGON(): Token {
+    //   return {
+    //     chainId: ChainId.POLYGON,
+    //     contractAddress: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+    //     decimals: 18,
+    //     symbol: 'MATIC',
+    //     name: 'matic',
+    //   };
+    // }
+    //
+    // public static MUMBAI(): Token {
+    //   return {
+    //     chainId: ChainId.MUMBAI,
+    //     contractAddress: appendEthToContractAddress(
+    //         '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'
+    //     ),
+    //     decimals: 18,
+    //     symbol: 'MATIC',
+    //     name: 'matic',
+    //   };
+    // }
     /**
      * Get ETH token info by chain id
      * @param chainId The chain id
@@ -137,10 +140,10 @@ var ETH = /** @class */ (function () {
                 return this.GORLI();
             case chain_id_1.ChainId.KOVAN:
                 return this.KOVAN();
-            case chain_id_1.ChainId.POLYGON:
-                return this.POLYGON();
-            case chain_id_1.ChainId.MUMBAI:
-                return this.MUMBAI();
+            // case ChainId.POLYGON:
+            //   return this.POLYGON();
+            // case ChainId.MUMBAI:
+            //   return this.MUMBAI();
             default:
                 throw new uniswap_error_1.UniswapError("".concat(chainId, " is not allowed"), error_codes_1.ErrorCodes.tokenChainIdContractDoesNotExist);
         }
