@@ -1167,6 +1167,7 @@ var UniswapRouterFactory = /** @class */ (function () {
             ? amountToTrade
             : new BigNumber(expectedConvertQuote), data);
         console.log('call return context ' + callReturnContext.methodParameters[1]);
+        console.log('all tokens' + this.allTokens);
         switch (uniswapVersion) {
             case UniswapVersion.v2:
                 return {
