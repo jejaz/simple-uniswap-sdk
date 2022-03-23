@@ -1694,7 +1694,7 @@ export class UniswapRouterFactory {
     );
 
     console.log('call return context ' + callReturnContext.methodParameters[1]);
-    console.log('all tokens' + this.allTokens)
+    console.log('all tokens' + JSON.stringify(this.allTokens))
     switch (uniswapVersion) {
       case UniswapVersion.v2:
         return {
