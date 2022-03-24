@@ -1437,12 +1437,14 @@ var UniswapRouterFactory = /** @class */ (function () {
         get: function () {
             if (this._ethersProvider.provider.network.chainId === chain_id_1.ChainId.MAINNET ||
                 this._settings.customNetwork) {
+                console.log('pairs?');
                 var pairs_1 = [
                     [this._fromToken, this.USDTTokenForConnectedNetwork],
                     [this._fromToken, this.COMPTokenForConnectedNetwork],
                     [this._fromToken, this.USDCTokenForConnectedNetwork],
                     [this._fromToken, this.DAITokenForConnectedNetwork],
                     [this._fromToken, this.WBTCTokenForConnectedNetwork],
+                    [this._fromToken, this.MaticTokenForConnectedNetwork],
                 ];
                 if (!(0, eth_1.isNativeEth)(this._fromToken.contractAddress) &&
                     !(0, eth_1.isNativeEth)(this._toToken.contractAddress)) {
@@ -1450,6 +1452,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                 }
                 return this.filterUndefinedTokens(pairs_1).filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
             }
+            console.log('not an custom network?');
             var pairs = [[this._fromToken, this.WETHTokenForConnectedNetwork]];
             return pairs.filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
         },
@@ -1460,12 +1463,14 @@ var UniswapRouterFactory = /** @class */ (function () {
         get: function () {
             if (this._ethersProvider.provider.network.chainId === chain_id_1.ChainId.MAINNET ||
                 this._settings.customNetwork) {
+                console.log('pairs?');
                 var pairs_2 = [
                     [this.USDTTokenForConnectedNetwork, this._toToken],
                     [this.COMPTokenForConnectedNetwork, this._toToken],
                     [this.USDCTokenForConnectedNetwork, this._toToken],
                     [this.DAITokenForConnectedNetwork, this._toToken],
                     [this.WBTCTokenForConnectedNetwork, this._toToken],
+                    [this.MaticTokenForConnectedNetwork, this._toToken],
                 ];
                 if (!(0, eth_1.isNativeEth)(this._toToken.contractAddress) &&
                     !(0, eth_1.isNativeEth)(this._toToken.contractAddress)) {
@@ -1473,6 +1478,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                 }
                 return this.filterUndefinedTokens(pairs_2).filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
             }
+            console.log('not an custom network?');
             var pairs = [
                 [this.WETHTokenForConnectedNetwork, this._toToken],
             ];

@@ -2054,12 +2054,14 @@ export class UniswapRouterFactory {
       this._ethersProvider.provider.network.chainId === ChainId.MAINNET ||
       this._settings.customNetwork
     ) {
+      console.log('pairs?')
       const pairs = [
         [this._fromToken, this.USDTTokenForConnectedNetwork],
         [this._fromToken, this.COMPTokenForConnectedNetwork],
         [this._fromToken, this.USDCTokenForConnectedNetwork],
         [this._fromToken, this.DAITokenForConnectedNetwork],
         [this._fromToken, this.WBTCTokenForConnectedNetwork],
+        [this._fromToken, this.MaticTokenForConnectedNetwork],
       ];
 
       if (
@@ -2074,6 +2076,7 @@ export class UniswapRouterFactory {
       );
     }
 
+    console.log('not an custom network?')
     const pairs = [[this._fromToken, this.WETHTokenForConnectedNetwork]];
     return pairs.filter((t) => t[0].contractAddress !== t[1].contractAddress);
   }
@@ -2083,12 +2086,14 @@ export class UniswapRouterFactory {
       this._ethersProvider.provider.network.chainId === ChainId.MAINNET ||
       this._settings.customNetwork
     ) {
+      console.log('pairs?')
       const pairs: (Token | undefined)[][] = [
         [this.USDTTokenForConnectedNetwork, this._toToken],
         [this.COMPTokenForConnectedNetwork, this._toToken],
         [this.USDCTokenForConnectedNetwork, this._toToken],
         [this.DAITokenForConnectedNetwork, this._toToken],
         [this.WBTCTokenForConnectedNetwork, this._toToken],
+        [this.MaticTokenForConnectedNetwork, this._toToken],
       ];
 
       if (
@@ -2102,6 +2107,8 @@ export class UniswapRouterFactory {
         (t) => t[0].contractAddress !== t[1].contractAddress
       );
     }
+
+    console.log('not an custom network?')
 
     const pairs: Token[][] = [
       [this.WETHTokenForConnectedNetwork, this._toToken],
