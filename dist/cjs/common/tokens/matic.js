@@ -20,7 +20,7 @@ var MATIC = /** @class */ (function () {
     };
     MATIC.MUMBAI = function () {
         return {
-            chainId: chain_id_1.ChainId.POLYGON,
+            chainId: chain_id_1.ChainId.MUMBAI,
             contractAddress: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
             decimals: 18,
             symbol: exports.MATIC_SYMBOL,
