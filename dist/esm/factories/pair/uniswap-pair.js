@@ -112,7 +112,8 @@ var UniswapPair = /** @class */ (function () {
                                 chainId !== ChainId.RINKEBY &&
                                 chainId !== ChainId.GÖRLI &&
                                 chainId !== ChainId.KOVAN &&
-                                chainId !== ChainId.POLYGON) {
+                                chainId !== ChainId.POLYGON &&
+                                chainId !== ChainId.MUMBAI) {
                                 throw new UniswapError("ChainId - ".concat(chainId, " is not supported. This lib only supports mainnet(1), ropsten(4), kovan(42), rinkeby(4), g\u00F6rli(5) and polygon(6)"), ErrorCodes.chainIdNotSupported);
                             }
                         }
