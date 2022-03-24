@@ -2028,6 +2028,7 @@ export class UniswapRouterFactory {
         this.WBTCTokenForConnectedNetwork,
       ];
 
+      console.log("else")
       return tokens.filter((t) => t !== undefined) as Token[];
     }
 

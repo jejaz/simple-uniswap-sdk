@@ -1407,6 +1407,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                     this.WETHTokenForConnectedNetwork,
                     this.WBTCTokenForConnectedNetwork,
                 ];
+                console.log("else");
                 return tokens.filter(function (t) { return t !== undefined; });
             }
             return [this.WETHTokenForConnectedNetwork];
