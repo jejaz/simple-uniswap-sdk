@@ -5,7 +5,7 @@ var chain_id_1 = require("../../enums/chain-id");
 var error_codes_1 = require("../errors/error-codes");
 var uniswap_error_1 = require("../errors/uniswap-error");
 exports.MATIC_SYMBOL = 'MATIC';
-exports.MATIC_NAME = 'matic';
+exports.MATIC_NAME = 'Matic';
 var MATIC = /** @class */ (function () {
     function MATIC() {
     }

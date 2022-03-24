@@ -8,6 +8,8 @@ import { deepClone } from '../utils/deep-clone';
 const ETH_PREFIX = '_ETH';
 export const ETH_SYMBOL = 'ETH';
 export const ETH_NAME = 'Ethers';
+export const MATIC_SYMBOL = 'MATIC';
+export const MATIC_NAME = 'Matic';
 
 export const appendEthToContractAddress = (contractAddress: string): string => {
   return `${contractAddress}${ETH_PREFIX}`;
@@ -29,13 +31,18 @@ export const turnTokenIntoEthForResponse = (
   token: Token,
   nativeCurrencyInfo: NativeCurrencyInfo | undefined
 ): Token => {
+  console.log("token for cloning" + token);
   const clone = deepClone(token);
   // clear down contract address
   clone.contractAddress = 'NO_CONTRACT_ADDRESS';
   if (nativeCurrencyInfo) {
     clone.symbol = nativeCurrencyInfo.symbol;
     clone.name = nativeCurrencyInfo.name;
-  } else {
+  } else if (token.chainId === 137 || token.chainId === 80001) {
+    clone.symbol = MATIC_SYMBOL;
+    clone.name = MATIC_NAME;
+  }
+    else {
     clone.symbol = ETH_SYMBOL;
     clone.name = ETH_NAME;
   }

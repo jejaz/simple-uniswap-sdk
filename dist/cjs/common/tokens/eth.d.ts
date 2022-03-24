@@ -3,6 +3,8 @@ import { NativeCurrencyInfo } from '../../factories/pair/models/custom-network';
 import { Token } from '../../factories/token/models/token';
 export declare const ETH_SYMBOL = "ETH";
 export declare const ETH_NAME = "Ethers";
+export declare const MATIC_SYMBOL = "MATIC";
+export declare const MATIC_NAME = "Matic";
 export declare const appendEthToContractAddress: (contractAddress: string) => string;
 export declare const removeEthFromContractAddress: (contractAddress: string) => string;
 export declare const isNativeEth: (contractAddress: string) => boolean;

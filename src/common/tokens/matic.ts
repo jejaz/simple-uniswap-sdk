@@ -4,7 +4,7 @@ import { ErrorCodes } from '../errors/error-codes';
 import { UniswapError } from '../errors/uniswap-error';
 
 export const MATIC_SYMBOL = 'MATIC';
-export const MATIC_NAME = 'matic';
+export const MATIC_NAME = 'Matic';
 
 export class MATIC {
     public static POLYGON(): Token {

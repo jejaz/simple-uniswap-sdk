@@ -2,7 +2,7 @@ import { ChainId } from '../../enums/chain-id';
 import { ErrorCodes } from '../errors/error-codes';
 import { UniswapError } from '../errors/uniswap-error';
 export var MATIC_SYMBOL = 'MATIC';
-export var MATIC_NAME = 'matic';
+export var MATIC_NAME = 'Matic';
 var MATIC = /** @class */ (function () {
     function MATIC() {
     }

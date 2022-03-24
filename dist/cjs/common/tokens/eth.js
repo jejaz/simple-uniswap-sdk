@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ETH = exports.turnTokenIntoEthForResponse = exports.isNativeEth = exports.removeEthFromContractAddress = exports.appendEthToContractAddress = exports.ETH_NAME = exports.ETH_SYMBOL = void 0;
+exports.ETH = exports.turnTokenIntoEthForResponse = exports.isNativeEth = exports.removeEthFromContractAddress = exports.appendEthToContractAddress = exports.MATIC_NAME = exports.MATIC_SYMBOL = exports.ETH_NAME = exports.ETH_SYMBOL = void 0;
 var chain_id_1 = require("../../enums/chain-id");
 var error_codes_1 = require("../errors/error-codes");
 var uniswap_error_1 = require("../errors/uniswap-error");
@@ -19,6 +19,8 @@ var deep_clone_1 = require("../utils/deep-clone");
 var ETH_PREFIX = '_ETH';
 exports.ETH_SYMBOL = 'ETH';
 exports.ETH_NAME = 'Ethers';
+exports.MATIC_SYMBOL = 'MATIC';
+exports.MATIC_NAME = 'Matic';
 var appendEthToContractAddress = function (contractAddress) {
     return "".concat(contractAddress).concat(ETH_PREFIX);
 };
@@ -34,12 +36,17 @@ var isNativeEth = function (contractAddress) {
 };
 exports.isNativeEth = isNativeEth;
 var turnTokenIntoEthForResponse = function (token, nativeCurrencyInfo) {
+    console.log("token for cloning" + token);
     var clone = (0, deep_clone_1.deepClone)(token);
     // clear down contract address
     clone.contractAddress = 'NO_CONTRACT_ADDRESS';
     if (nativeCurrencyInfo) {
         clone.symbol = nativeCurrencyInfo.symbol;
         clone.name = nativeCurrencyInfo.name;
+    }
+    else if (token.chainId === 137 || token.chainId === 80001) {
+        clone.symbol = exports.MATIC_SYMBOL;
+        clone.name = exports.MATIC_NAME;
     }
     else {
         clone.symbol = exports.ETH_SYMBOL;
