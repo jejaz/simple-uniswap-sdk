@@ -43,4 +43,19 @@ export class MATIC {
                 );
         }
     }
+    public static info(
+        chainId: ChainId | number,
+    ): Token {
+        switch (chainId) {
+            case ChainId.POLYGON:
+                return this.POLYGON();
+            case ChainId.MUMBAI:
+                return this.MUMBAI();
+            default:
+                throw new UniswapError(
+                    `${chainId} is not allowed`,
+                    ErrorCodes.tokenChainIdContractDoesNotExist
+                );
+        }
+    }
 }

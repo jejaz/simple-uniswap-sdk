@@ -10,4 +10,5 @@ export declare class MATIC {
      * @param chainId The chain id
      */
     static token(chainId: ChainId | number): Token;
+    static info(chainId: ChainId | number): Token;
 }

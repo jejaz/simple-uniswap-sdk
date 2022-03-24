@@ -41,6 +41,16 @@ var MATIC = /** @class */ (function () {
                 throw new uniswap_error_1.UniswapError("".concat(chainId, " is not allowed"), error_codes_1.ErrorCodes.tokenChainIdContractDoesNotExist);
         }
     };
+    MATIC.info = function (chainId) {
+        switch (chainId) {
+            case chain_id_1.ChainId.POLYGON:
+                return this.POLYGON();
+            case chain_id_1.ChainId.MUMBAI:
+                return this.MUMBAI();
+            default:
+                throw new uniswap_error_1.UniswapError("".concat(chainId, " is not allowed"), error_codes_1.ErrorCodes.tokenChainIdContractDoesNotExist);
+        }
+    };
     return MATIC;
 }());
 exports.MATIC = MATIC;
