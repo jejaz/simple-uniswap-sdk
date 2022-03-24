@@ -1153,7 +1153,7 @@ var UniswapRouterFactory = /** @class */ (function () {
      */
     UniswapRouterFactory.prototype.buildRouteQuoteForEthToErc20 = function (amountToTrade, callReturnContext, routeContext, direction, uniswapVersion) {
         var _this = this;
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e, _f;
         console.log('beginning of method');
         var convertQuoteUnformatted = this.getConvertQuoteUnformatted(callReturnContext, direction, uniswapVersion);
         var expectedConvertQuote = direction === trade_direction_1.TradeDirection.input
@@ -1176,6 +1176,7 @@ var UniswapRouterFactory = /** @class */ (function () {
             : new bignumber_js_1.default(expectedConvertQuote), data);
         console.log('call return context ' + callReturnContext.methodParameters[1]);
         console.log('all tokens' + JSON.stringify(this.allTokens));
+        console.log('native currency' + ((_b = (_a = this._settings) === null || _a === void 0 ? void 0 : _a.customNetwork) === null || _b === void 0 ? void 0 : _b.nativeCurrency));
         switch (uniswapVersion) {
             case uniswap_version_1.UniswapVersion.v2:
                 return {
@@ -1191,6 +1192,11 @@ var UniswapRouterFactory = /** @class */ (function () {
                         }
                         return token;
                     }),
+                    // routePathArrayTokenMap: callReturnContext.methodParameters[1].map(
+                    //     (c: string) => {
+                    //       return this.allTokens.find((t) => t.contractAddress === c);
+                    //     }
+                    // ),
                     routeText: callReturnContext.methodParameters[1]
                         .map(function (c, index) {
                         if (index === 0) {
@@ -1213,10 +1219,10 @@ var UniswapRouterFactory = /** @class */ (function () {
                     transaction: transaction,
                     tradeExpires: tradeExpires,
                     routePathArrayTokenMap: [
-                        (0, eth_1.turnTokenIntoEthForResponse)(this._fromToken, (_b = (_a = this._settings) === null || _a === void 0 ? void 0 : _a.customNetwork) === null || _b === void 0 ? void 0 : _b.nativeCurrency),
+                        (0, eth_1.turnTokenIntoEthForResponse)(this._fromToken, (_d = (_c = this._settings) === null || _c === void 0 ? void 0 : _c.customNetwork) === null || _d === void 0 ? void 0 : _d.nativeCurrency),
                         this._toToken,
                     ],
-                    routeText: "".concat((0, eth_1.turnTokenIntoEthForResponse)(this._fromToken, (_d = (_c = this._settings) === null || _c === void 0 ? void 0 : _c.customNetwork) === null || _d === void 0 ? void 0 : _d.nativeCurrency).symbol, " > ").concat(this._toToken.symbol),
+                    routeText: "".concat((0, eth_1.turnTokenIntoEthForResponse)(this._fromToken, (_f = (_e = this._settings) === null || _e === void 0 ? void 0 : _e.customNetwork) === null || _f === void 0 ? void 0 : _f.nativeCurrency).symbol, " > ").concat(this._toToken.symbol),
                     routePathArray: [
                         this._fromToken.contractAddress,
                         this._toToken.contractAddress,
@@ -1413,7 +1419,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                     this.WETHTokenForConnectedNetwork,
                     this.WBTCTokenForConnectedNetwork,
                 ];
-                console.log("else");
                 return tokens.filter(function (t) { return t !== undefined; });
             }
             return [this.WETHTokenForConnectedNetwork];
@@ -1648,7 +1653,6 @@ var UniswapRouterFactory = /** @class */ (function () {
     });
     Object.defineProperty(UniswapRouterFactory.prototype, "WETHTokenForConnectedNetwork", {
         get: function () {
-            console.log('custom network' + this._settings.customNetwork);
             if (this._settings.customNetwork) {
                 return this._settings.customNetwork.nativeWrappedTokenInfo;
             }

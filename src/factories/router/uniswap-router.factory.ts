@@ -1697,6 +1697,7 @@ export class UniswapRouterFactory {
 
     console.log('call return context ' + callReturnContext.methodParameters[1]);
     console.log('all tokens' + JSON.stringify(this.allTokens))
+    console.log('native currency' +  this._settings?.customNetwork?.nativeCurrency);
     switch (uniswapVersion) {
       case UniswapVersion.v2:
         return {
@@ -1719,6 +1720,11 @@ export class UniswapRouterFactory {
               return token;
             }
           ),
+          // routePathArrayTokenMap: callReturnContext.methodParameters[1].map(
+          //     (c: string) => {
+          //       return this.allTokens.find((t) => t.contractAddress === c);
+          //     }
+          // ),
           routeText: callReturnContext.methodParameters[1]
             .map((c: string, index: number) => {
               if (index === 0) {
@@ -2028,7 +2034,6 @@ export class UniswapRouterFactory {
         this.WBTCTokenForConnectedNetwork,
       ];
 
-      console.log("else")
       return tokens.filter((t) => t !== undefined) as Token[];
     }
 
@@ -2283,7 +2288,6 @@ export class UniswapRouterFactory {
   }
 
   private get WETHTokenForConnectedNetwork() {
-    console.log('custom network' + this._settings.customNetwork)
     if (this._settings.customNetwork) {
       return this._settings.customNetwork.nativeWrappedTokenInfo;
     }
