@@ -80,6 +80,7 @@ var router_direction_1 = require("./enums/router-direction");
 var uniswap_router_contract_factory_v2_1 = require("./v2/uniswap-router-contract.factory.v2");
 var fee_amount_v3_1 = require("./v3/enums/fee-amount-v3");
 var uniswap_router_contract_factory_v3_1 = require("./v3/uniswap-router-contract.factory.v3");
+var tokens_1 = require("../../common/tokens");
 var UniswapRouterFactory = /** @class */ (function () {
     function UniswapRouterFactory(_coinGecko, _ethereumAddress, _fromToken, _toToken, _settings, _ethersProvider) {
         var _a, _b;
@@ -1421,6 +1422,12 @@ var UniswapRouterFactory = /** @class */ (function () {
                 ];
                 return tokens.filter(function (t) { return t !== undefined; });
             }
+            if (this._ethersProvider.provider.network.chainId === chain_id_1.ChainId.MUMBAI || this._ethersProvider.provider.network.chainId === chain_id_1.ChainId.POLYGON) {
+                var tokens = [
+                    this.MaticTokenForConnectedNetwork,
+                ];
+                return tokens.filter(function (t) { return t !== undefined; });
+            }
             return [this.WETHTokenForConnectedNetwork];
         },
         enumerable: false,
@@ -1668,6 +1675,17 @@ var UniswapRouterFactory = /** @class */ (function () {
                 return (_a = this._settings.customNetwork.baseTokens) === null || _a === void 0 ? void 0 : _a.wbtc;
             }
             return wbtc_1.WBTC.token(this._ethersProvider.provider.network.chainId);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(UniswapRouterFactory.prototype, "MaticTokenForConnectedNetwork", {
+        get: function () {
+            var _a;
+            if (this._settings.customNetwork) {
+                return (_a = this._settings.customNetwork.baseTokens) === null || _a === void 0 ? void 0 : _a.matic;
+            }
+            return tokens_1.MATIC.token(this._ethersProvider.provider.network.chainId);
         },
         enumerable: false,
         configurable: true

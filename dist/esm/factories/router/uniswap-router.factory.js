@@ -74,6 +74,7 @@ import { RouterDirection } from './enums/router-direction';
 import { UniswapRouterContractFactoryV2 } from './v2/uniswap-router-contract.factory.v2';
 import { FeeAmount, feeToPercent, percentToFeeAmount, } from './v3/enums/fee-amount-v3';
 import { UniswapRouterContractFactoryV3 } from './v3/uniswap-router-contract.factory.v3';
+import { MATIC } from "../../common/tokens";
 var UniswapRouterFactory = /** @class */ (function () {
     function UniswapRouterFactory(_coinGecko, _ethereumAddress, _fromToken, _toToken, _settings, _ethersProvider) {
         var _a, _b;
@@ -1415,6 +1416,12 @@ var UniswapRouterFactory = /** @class */ (function () {
                 ];
                 return tokens.filter(function (t) { return t !== undefined; });
             }
+            if (this._ethersProvider.provider.network.chainId === ChainId.MUMBAI || this._ethersProvider.provider.network.chainId === ChainId.POLYGON) {
+                var tokens = [
+                    this.MaticTokenForConnectedNetwork,
+                ];
+                return tokens.filter(function (t) { return t !== undefined; });
+            }
             return [this.WETHTokenForConnectedNetwork];
         },
         enumerable: false,
@@ -1662,6 +1669,17 @@ var UniswapRouterFactory = /** @class */ (function () {
                 return (_a = this._settings.customNetwork.baseTokens) === null || _a === void 0 ? void 0 : _a.wbtc;
             }
             return WBTC.token(this._ethersProvider.provider.network.chainId);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(UniswapRouterFactory.prototype, "MaticTokenForConnectedNetwork", {
+        get: function () {
+            var _a;
+            if (this._settings.customNetwork) {
+                return (_a = this._settings.customNetwork.baseTokens) === null || _a === void 0 ? void 0 : _a.matic;
+            }
+            return MATIC.token(this._ethersProvider.provider.network.chainId);
         },
         enumerable: false,
         configurable: true

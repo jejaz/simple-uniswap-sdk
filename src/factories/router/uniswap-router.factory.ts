@@ -59,6 +59,7 @@ import {
   percentToFeeAmount,
 } from './v3/enums/fee-amount-v3';
 import { UniswapRouterContractFactoryV3 } from './v3/uniswap-router-contract.factory.v3';
+import {MATIC} from "../../common/tokens";
 
 export class UniswapRouterFactory {
   private _multicall = new CustomMulticall(
@@ -2037,6 +2038,14 @@ export class UniswapRouterFactory {
       return tokens.filter((t) => t !== undefined) as Token[];
     }
 
+    if (this._ethersProvider.provider.network.chainId === ChainId.MUMBAI || this._ethersProvider.provider.network.chainId === ChainId.POLYGON) {
+      const tokens: (Token | undefined)[] = [
+        this.MaticTokenForConnectedNetwork,
+      ];
+
+      return tokens.filter((t) => t !== undefined) as Token[];
+    }
+
     return [this.WETHTokenForConnectedNetwork];
   }
 
@@ -2301,6 +2310,14 @@ export class UniswapRouterFactory {
     }
 
     return WBTC.token(this._ethersProvider.provider.network.chainId);
+  }
+
+  private get MaticTokenForConnectedNetwork() {
+    if (this._settings.customNetwork) {
+      return this._settings.customNetwork.baseTokens?.matic;
+    }
+
+    return MATIC.token(this._ethersProvider.provider.network.chainId);
   }
 
   private getNativeTokenSymbol(): string {

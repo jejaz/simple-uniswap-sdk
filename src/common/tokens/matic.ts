@@ -7,7 +7,6 @@ export const MATIC_SYMBOL = 'MATIC';
 export const MATIC_NAME = 'Matic';
 
 export class MATIC {
-
     public static POLYGON(): Token {
         return {
             chainId: ChainId.POLYGON,

@@ -233,5 +233,6 @@ export declare class UniswapRouterFactory {
     private get USDCTokenForConnectedNetwork();
     private get WETHTokenForConnectedNetwork();
     private get WBTCTokenForConnectedNetwork();
+    private get MaticTokenForConnectedNetwork();
     private getNativeTokenSymbol;
 }
