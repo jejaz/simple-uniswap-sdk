@@ -2054,7 +2054,6 @@ export class UniswapRouterFactory {
       this._ethersProvider.provider.network.chainId === ChainId.MAINNET ||
       this._settings.customNetwork
     ) {
-      console.log('pairs?')
       const pairs = [
         [this._fromToken, this.USDTTokenForConnectedNetwork],
         [this._fromToken, this.COMPTokenForConnectedNetwork],
@@ -2076,7 +2075,12 @@ export class UniswapRouterFactory {
       );
     }
 
-    console.log('not an custom network?')
+    if (this._ethersProvider.provider.network.chainId === ChainId.POLYGON || this._ethersProvider.provider.network.chainId === ChainId.MUMBAI) {
+      const pairs = [[this._fromToken, this.MaticTokenForConnectedNetwork]];
+      return this.filterUndefinedTokens(pairs).filter(
+          (t) => t[0].contractAddress !== t[1].contractAddress
+      );
+    }
     const pairs = [[this._fromToken, this.WETHTokenForConnectedNetwork]];
     return pairs.filter((t) => t[0].contractAddress !== t[1].contractAddress);
   }
@@ -2086,7 +2090,6 @@ export class UniswapRouterFactory {
       this._ethersProvider.provider.network.chainId === ChainId.MAINNET ||
       this._settings.customNetwork
     ) {
-      console.log('pairs?')
       const pairs: (Token | undefined)[][] = [
         [this.USDTTokenForConnectedNetwork, this._toToken],
         [this.COMPTokenForConnectedNetwork, this._toToken],
@@ -2108,7 +2111,12 @@ export class UniswapRouterFactory {
       );
     }
 
-    console.log('not an custom network?')
+    if (this._ethersProvider.provider.network.chainId === ChainId.POLYGON || this._ethersProvider.provider.network.chainId === ChainId.MUMBAI) {
+      const pairs = [[this.MaticTokenForConnectedNetwork, this._toToken]];
+      return this.filterUndefinedTokens(pairs).filter(
+          (t) => t[0].contractAddress !== t[1].contractAddress
+      );
+    }
 
     const pairs: Token[][] = [
       [this.WETHTokenForConnectedNetwork, this._toToken],

@@ -1431,7 +1431,6 @@ var UniswapRouterFactory = /** @class */ (function () {
         get: function () {
             if (this._ethersProvider.provider.network.chainId === ChainId.MAINNET ||
                 this._settings.customNetwork) {
-                console.log('pairs?');
                 var pairs_1 = [
                     [this._fromToken, this.USDTTokenForConnectedNetwork],
                     [this._fromToken, this.COMPTokenForConnectedNetwork],
@@ -1446,7 +1445,10 @@ var UniswapRouterFactory = /** @class */ (function () {
                 }
                 return this.filterUndefinedTokens(pairs_1).filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
             }
-            console.log('not an custom network?');
+            if (this._ethersProvider.provider.network.chainId === ChainId.POLYGON || this._ethersProvider.provider.network.chainId === ChainId.MUMBAI) {
+                var pairs_2 = [[this._fromToken, this.MaticTokenForConnectedNetwork]];
+                return this.filterUndefinedTokens(pairs_2).filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
+            }
             var pairs = [[this._fromToken, this.WETHTokenForConnectedNetwork]];
             return pairs.filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
         },
@@ -1457,8 +1459,7 @@ var UniswapRouterFactory = /** @class */ (function () {
         get: function () {
             if (this._ethersProvider.provider.network.chainId === ChainId.MAINNET ||
                 this._settings.customNetwork) {
-                console.log('pairs?');
-                var pairs_2 = [
+                var pairs_3 = [
                     [this.USDTTokenForConnectedNetwork, this._toToken],
                     [this.COMPTokenForConnectedNetwork, this._toToken],
                     [this.USDCTokenForConnectedNetwork, this._toToken],
@@ -1468,11 +1469,14 @@ var UniswapRouterFactory = /** @class */ (function () {
                 ];
                 if (!isNativeEth(this._toToken.contractAddress) &&
                     !isNativeEth(this._toToken.contractAddress)) {
-                    pairs_2.push([this.WETHTokenForConnectedNetwork, this._toToken]);
+                    pairs_3.push([this.WETHTokenForConnectedNetwork, this._toToken]);
                 }
-                return this.filterUndefinedTokens(pairs_2).filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
+                return this.filterUndefinedTokens(pairs_3).filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
             }
-            console.log('not an custom network?');
+            if (this._ethersProvider.provider.network.chainId === ChainId.POLYGON || this._ethersProvider.provider.network.chainId === ChainId.MUMBAI) {
+                var pairs_4 = [[this.MaticTokenForConnectedNetwork, this._toToken]];
+                return this.filterUndefinedTokens(pairs_4).filter(function (t) { return t[0].contractAddress !== t[1].contractAddress; });
+            }
             var pairs = [
                 [this.WETHTokenForConnectedNetwork, this._toToken],
             ];
