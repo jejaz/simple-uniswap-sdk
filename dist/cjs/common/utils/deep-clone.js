@@ -6,7 +6,6 @@ exports.deepClone = void 0;
  * @param object The object to clone
  */
 function deepClone(object) {
-    console.log('object ' + JSON.stringify(object));
     return JSON.parse(JSON.stringify(object));
 }
 exports.deepClone = deepClone;
