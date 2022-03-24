@@ -12,6 +12,7 @@ export declare class WETHContract {
     static GORLI(): Token;
     static KOVAN(): Token;
     static POLYGON(): Token;
+    static MUMBAI(): Token;
     /**
      * Get WETH token info by chain id
      * @param chainId The chain id

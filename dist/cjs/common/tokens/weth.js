@@ -66,6 +66,15 @@ var WETHContract = /** @class */ (function () {
             name: exports.WETH_NAME,
         };
     };
+    WETHContract.MUMBAI = function () {
+        return {
+            chainId: chain_id_1.ChainId.MUMBAI,
+            contractAddress: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
+            decimals: 18,
+            symbol: exports.WETH_SYMBOL,
+            name: exports.WETH_NAME,
+        };
+    };
     /**
      * Get WETH token info by chain id
      * @param chainId The chain id
@@ -84,6 +93,8 @@ var WETHContract = /** @class */ (function () {
                 return this.KOVAN();
             case chain_id_1.ChainId.POLYGON:
                 return this.POLYGON();
+            case chain_id_1.ChainId.MUMBAI:
+                return this.MUMBAI();
             default:
                 throw new uniswap_error_1.UniswapError("".concat(chainId, " is not allowed"), error_codes_1.ErrorCodes.tokenChainIdContractDoesNotExist);
         }
