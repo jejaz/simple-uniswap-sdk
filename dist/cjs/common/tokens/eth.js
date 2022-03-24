@@ -36,7 +36,7 @@ var isNativeEth = function (contractAddress) {
 };
 exports.isNativeEth = isNativeEth;
 var turnTokenIntoEthForResponse = function (token, nativeCurrencyInfo) {
-    console.log("token for cloning" + token);
+    console.log("token for cloning" + JSON.stringify(token));
     var clone = (0, deep_clone_1.deepClone)(token);
     // clear down contract address
     clone.contractAddress = 'NO_CONTRACT_ADDRESS';

@@ -1026,7 +1026,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                     if (!callReturnContext.success) {
                         continue;
                     }
-                    console.log(tradePath);
                     switch (tradePath) {
                         case TradePath.ethToErc20:
                             result.push(this.buildRouteQuoteForEthToErc20(amountToTrade, callReturnContext, contractCallReturnContext.originalContractCallContext.context[i], direction, contractCallReturnContext.originalContractCallContext
@@ -1097,8 +1096,6 @@ var UniswapRouterFactory = /** @class */ (function () {
         var transaction = this.buildUpTransactionErc20(uniswapVersion, data);
         switch (uniswapVersion) {
             case UniswapVersion.v2:
-                console.log('call return context ' + callReturnContext.methodParameters[1]);
-                console.log('all tokens' + JSON.stringify(this.allTokens));
                 return {
                     expectedConvertQuote: expectedConvertQuote,
                     expectedConvertQuoteOrTokenAmountInMaxWithSlippage: expectedConvertQuoteOrTokenAmountInMaxWithSlippage,
@@ -1148,8 +1145,7 @@ var UniswapRouterFactory = /** @class */ (function () {
      */
     UniswapRouterFactory.prototype.buildRouteQuoteForEthToErc20 = function (amountToTrade, callReturnContext, routeContext, direction, uniswapVersion) {
         var _this = this;
-        var _a, _b, _c, _d, _e, _f;
-        console.log('beginning of method');
+        var _a, _b, _c, _d;
         var convertQuoteUnformatted = this.getConvertQuoteUnformatted(callReturnContext, direction, uniswapVersion);
         var expectedConvertQuote = direction === TradeDirection.input
             ? convertQuoteUnformatted
@@ -1169,9 +1165,6 @@ var UniswapRouterFactory = /** @class */ (function () {
         var transaction = this.buildUpTransactionEth(uniswapVersion, direction === TradeDirection.input
             ? amountToTrade
             : new BigNumber(expectedConvertQuote), data);
-        console.log('call return context ' + callReturnContext.methodParameters[1]);
-        console.log('all tokens' + JSON.stringify(this.allTokens));
-        console.log('native currency' + ((_b = (_a = this._settings) === null || _a === void 0 ? void 0 : _a.customNetwork) === null || _b === void 0 ? void 0 : _b.nativeCurrency));
         switch (uniswapVersion) {
             case UniswapVersion.v2:
                 return {
@@ -1214,10 +1207,10 @@ var UniswapRouterFactory = /** @class */ (function () {
                     transaction: transaction,
                     tradeExpires: tradeExpires,
                     routePathArrayTokenMap: [
-                        turnTokenIntoEthForResponse(this._fromToken, (_d = (_c = this._settings) === null || _c === void 0 ? void 0 : _c.customNetwork) === null || _d === void 0 ? void 0 : _d.nativeCurrency),
+                        turnTokenIntoEthForResponse(this._fromToken, (_b = (_a = this._settings) === null || _a === void 0 ? void 0 : _a.customNetwork) === null || _b === void 0 ? void 0 : _b.nativeCurrency),
                         this._toToken,
                     ],
-                    routeText: "".concat(turnTokenIntoEthForResponse(this._fromToken, (_f = (_e = this._settings) === null || _e === void 0 ? void 0 : _e.customNetwork) === null || _f === void 0 ? void 0 : _f.nativeCurrency).symbol, " > ").concat(this._toToken.symbol),
+                    routeText: "".concat(turnTokenIntoEthForResponse(this._fromToken, (_d = (_c = this._settings) === null || _c === void 0 ? void 0 : _c.customNetwork) === null || _d === void 0 ? void 0 : _d.nativeCurrency).symbol, " > ").concat(this._toToken.symbol),
                     routePathArray: [
                         this._fromToken.contractAddress,
                         this._toToken.contractAddress,

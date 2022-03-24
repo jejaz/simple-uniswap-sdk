@@ -1435,7 +1435,6 @@ export class UniswapRouterFactory {
             continue;
           }
 
-          console.log(tradePath);
           switch (tradePath) {
             case TradePath.ethToErc20:
               result.push(
@@ -1584,8 +1583,6 @@ export class UniswapRouterFactory {
 
     switch (uniswapVersion) {
       case UniswapVersion.v2:
-        console.log('call return context ' + callReturnContext.methodParameters[1]);
-        console.log('all tokens' + JSON.stringify(this.allTokens))
         return {
           expectedConvertQuote,
           expectedConvertQuoteOrTokenAmountInMaxWithSlippage,
@@ -1644,7 +1641,6 @@ export class UniswapRouterFactory {
     uniswapVersion: UniswapVersion
   ): RouteQuote {
 
-    console.log('beginning of method')
     const convertQuoteUnformatted = this.getConvertQuoteUnformatted(
       callReturnContext,
       direction,
@@ -1696,9 +1692,6 @@ export class UniswapRouterFactory {
       data
     );
 
-    console.log('call return context ' + callReturnContext.methodParameters[1]);
-    console.log('all tokens' + JSON.stringify(this.allTokens))
-    console.log('native currency' +  this._settings?.customNetwork?.nativeCurrency);
     switch (uniswapVersion) {
       case UniswapVersion.v2:
         return {

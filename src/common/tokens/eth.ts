@@ -31,7 +31,7 @@ export const turnTokenIntoEthForResponse = (
   token: Token,
   nativeCurrencyInfo: NativeCurrencyInfo | undefined
 ): Token => {
-  console.log("token for cloning" + token);
+  console.log("token for cloning" + JSON.stringify(token));
   const clone = deepClone(token);
   // clear down contract address
   clone.contractAddress = 'NO_CONTRACT_ADDRESS';
