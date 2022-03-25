@@ -40,6 +40,7 @@ exports.UniswapPairContractFactoryV2 = void 0;
 var uniswap_contract_context_v2_1 = require("../../../uniswap-contract-context/uniswap-contract-context-v2");
 var chain_id_1 = require("../../../enums/chain-id");
 var UniswapPairContractFactoryV2 = /** @class */ (function () {
+    //TODO: maybe revert!
     function UniswapPairContractFactoryV2(_ethersProvider, _pairAddress) {
         if (_pairAddress === void 0) { _pairAddress = _ethersProvider.network().chainId === chain_id_1.ChainId.POLYGON ? uniswap_contract_context_v2_1.UniswapContractContextV2.pairAddressPolygon : uniswap_contract_context_v2_1.UniswapContractContextV2.pairAddressMumbai; }
         this._ethersProvider = _ethersProvider;
