@@ -1,6 +1,7 @@
 import { CloneUniswapContractDetails } from '../factories/pair/models/clone-uniswap-contract-details';
 import { UniswapContractContextV2 } from './uniswap-contract-context-v2';
 import { UniswapContractContextV3 } from './uniswap-contract-context-v3';
+import {ChainId} from "../enums/chain-id";
 
 export const uniswapContracts = {
   v2: {
@@ -31,7 +32,8 @@ export const uniswapContracts = {
     },
 
     getPairAddress: (
-      cloneUniswapContractDetails: CloneUniswapContractDetails | undefined
+      cloneUniswapContractDetails: CloneUniswapContractDetails | undefined,
+      chainId: ChainId
     ) => {
       if (
         cloneUniswapContractDetails &&
@@ -39,7 +41,7 @@ export const uniswapContracts = {
       ) {
         return cloneUniswapContractDetails.v2Override.pairAddress;
       }
-
+      console.log ("chain Id" + chainId)
       return UniswapContractContextV2.pairAddress;
     },
   },

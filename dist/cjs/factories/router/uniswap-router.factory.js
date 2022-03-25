@@ -128,7 +128,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v2)) {
                             contractCallContext.push({
                                 reference: uniswap_version_1.UniswapVersion.v2,
-                                contractAddress: get_uniswap_contracts_1.uniswapContracts.v2.getPairAddress(this._settings.cloneUniswapContractDetails),
+                                contractAddress: get_uniswap_contracts_1.uniswapContracts.v2.getPairAddress(this._settings.cloneUniswapContractDetails, this._ethersProvider.provider.network.chainId),
                                 abi: uniswap_contract_context_v2_1.UniswapContractContextV2.pairAbi,
                                 calls: [],
                             });

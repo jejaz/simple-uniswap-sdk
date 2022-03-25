@@ -130,7 +130,8 @@ export class UniswapRouterFactory {
       contractCallContext.push({
         reference: UniswapVersion.v2,
         contractAddress: uniswapContracts.v2.getPairAddress(
-          this._settings.cloneUniswapContractDetails
+          this._settings.cloneUniswapContractDetails,
+            this._ethersProvider.provider.network.chainId
         ),
         abi: UniswapContractContextV2.pairAbi,
         calls: [],

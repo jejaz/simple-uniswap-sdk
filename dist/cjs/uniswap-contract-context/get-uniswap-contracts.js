@@ -19,11 +19,12 @@ exports.uniswapContracts = {
             }
             return uniswap_contract_context_v2_1.UniswapContractContextV2.factoryAddress;
         },
-        getPairAddress: function (cloneUniswapContractDetails) {
+        getPairAddress: function (cloneUniswapContractDetails, chainId) {
             if (cloneUniswapContractDetails &&
                 cloneUniswapContractDetails.v2Override) {
                 return cloneUniswapContractDetails.v2Override.pairAddress;
             }
+            console.log("chain Id" + chainId);
             return uniswap_contract_context_v2_1.UniswapContractContextV2.pairAddress;
         },
     },
