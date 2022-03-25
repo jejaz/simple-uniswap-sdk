@@ -40,7 +40,6 @@ export const uniswapContracts = {
         return cloneUniswapContractDetails.v2Override.pairAddress;
       }
 
-      console.log(JSON.stringify(cloneUniswapContractDetails))
       return UniswapContractContextV2.pairAddress;
     },
   },

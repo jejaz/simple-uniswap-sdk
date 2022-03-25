@@ -24,7 +24,6 @@ exports.uniswapContracts = {
                 cloneUniswapContractDetails.v2Override) {
                 return cloneUniswapContractDetails.v2Override.pairAddress;
             }
-            console.log(JSON.stringify(cloneUniswapContractDetails));
             return uniswap_contract_context_v2_1.UniswapContractContextV2.pairAddress;
         },
     },
