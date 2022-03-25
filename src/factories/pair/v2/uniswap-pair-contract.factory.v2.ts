@@ -11,6 +11,7 @@ export class UniswapPairContractFactoryV2 {
       this._pairAddress
     );
 
+  //TODO: maybe revert!
   constructor(
     private _ethersProvider: EthersProvider,
     private _pairAddress: string =  _ethersProvider.network().chainId === ChainId.POLYGON ? UniswapContractContextV2.pairAddressPolygon : UniswapContractContextV2.pairAddressMumbai
