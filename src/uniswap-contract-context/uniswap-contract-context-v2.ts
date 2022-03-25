@@ -15,10 +15,13 @@ export class UniswapContractContextV2 {
    * The uniswap pair address
    */
   //address for polygon mainnet
-  public static pairAddress = '0x9b967c6db1a8cc1e73eca79ca3e5b32ba9ac6465';
+  public static pairAddress = '';
+
+  //address for polygon mainnet
+  public static pairAddressPolygon = '0x9b967c6db1a8cc1e73eca79ca3e5b32ba9ac6465';
 
   //address for mumbai
-  //public static pairAddress = '0xc35dadb65012ec5796536bd9864ed8773abc74c4';
+  public static pairAddressMumbai = '0xc35dadb65012ec5796536bd9864ed8773abc74c4';
 
   /**
    * Uniswap v2 router

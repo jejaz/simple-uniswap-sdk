@@ -11,7 +11,6 @@ export class UniswapPairContractFactoryPublicV2 extends UniswapPairContractFacto
     providerContext: ChainIdAndProvider | EthereumProvider,
     pairAddress: string = UniswapContractContextV2.pairAddress
   ) {
-    console.log("provider context " + JSON.stringify(providerContext))
     super(new EthersProvider(providerContext), pairAddress);
   }
 }

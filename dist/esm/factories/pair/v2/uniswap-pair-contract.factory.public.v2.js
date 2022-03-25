@@ -20,7 +20,6 @@ var UniswapPairContractFactoryPublicV2 = /** @class */ (function (_super) {
     __extends(UniswapPairContractFactoryPublicV2, _super);
     function UniswapPairContractFactoryPublicV2(providerContext, pairAddress) {
         if (pairAddress === void 0) { pairAddress = UniswapContractContextV2.pairAddress; }
-        console.log("provider context " + JSON.stringify(providerContext));
         return _super.call(this, new EthersProvider(providerContext), pairAddress) || this;
     }
     return UniswapPairContractFactoryPublicV2;

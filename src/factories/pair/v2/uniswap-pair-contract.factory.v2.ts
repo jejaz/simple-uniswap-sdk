@@ -2,6 +2,7 @@ import { BigNumberish } from 'ethers';
 import { ContractContext as PairContractContext } from '../../../ABI/types/uniswap-pair-v2';
 import { EthersProvider } from '../../../ethers-provider';
 import { UniswapContractContextV2 } from '../../../uniswap-contract-context/uniswap-contract-context-v2';
+import {ChainId} from "../../../enums/chain-id";
 
 export class UniswapPairContractFactoryV2 {
   private _uniswapPairFactory =
@@ -12,7 +13,7 @@ export class UniswapPairContractFactoryV2 {
 
   constructor(
     private _ethersProvider: EthersProvider,
-    private _pairAddress: string = UniswapContractContextV2.pairAddress
+    private _pairAddress: string =  _ethersProvider.network().chainId === ChainId.POLYGON ? UniswapContractContextV2.pairAddressPolygon : UniswapContractContextV2.pairAddressMumbai
   ) {}
 
   public async allPairs(parameter0: BigNumberish): Promise<string> {

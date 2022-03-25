@@ -35,9 +35,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { UniswapContractContextV2 } from '../../../uniswap-contract-context/uniswap-contract-context-v2';
+import { ChainId } from "../../../enums/chain-id";
 var UniswapPairContractFactoryV2 = /** @class */ (function () {
     function UniswapPairContractFactoryV2(_ethersProvider, _pairAddress) {
-        if (_pairAddress === void 0) { _pairAddress = UniswapContractContextV2.pairAddress; }
+        if (_pairAddress === void 0) { _pairAddress = _ethersProvider.network().chainId === ChainId.POLYGON ? UniswapContractContextV2.pairAddressPolygon : UniswapContractContextV2.pairAddressMumbai; }
         this._ethersProvider = _ethersProvider;
         this._pairAddress = _pairAddress;
         this._uniswapPairFactory = this._ethersProvider.getContract(JSON.stringify(UniswapContractContextV2.pairAbi), this._pairAddress);

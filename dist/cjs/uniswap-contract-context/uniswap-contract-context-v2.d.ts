@@ -12,6 +12,8 @@ export declare class UniswapContractContextV2 {
      * The uniswap pair address
      */
     static pairAddress: string;
+    static pairAddressPolygon: string;
+    static pairAddressMumbai: string;
     /**
      * Uniswap v2 router
      */
