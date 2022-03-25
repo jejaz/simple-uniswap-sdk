@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.uniswapContracts = void 0;
 var uniswap_contract_context_v2_1 = require("./uniswap-contract-context-v2");
 var uniswap_contract_context_v3_1 = require("./uniswap-contract-context-v3");
+var chain_id_1 = require("../enums/chain-id");
 exports.uniswapContracts = {
     v2: {
         getRouterAddress: function (cloneUniswapContractDetails) {
@@ -24,8 +25,8 @@ exports.uniswapContracts = {
                 cloneUniswapContractDetails.v2Override) {
                 return cloneUniswapContractDetails.v2Override.pairAddress;
             }
-            console.log("chain Id" + chainId);
-            return uniswap_contract_context_v2_1.UniswapContractContextV2.pairAddress;
+            return chainId === chain_id_1.ChainId.POLYGON ? uniswap_contract_context_v2_1.UniswapContractContextV2.pairAddressPolygon : uniswap_contract_context_v2_1.UniswapContractContextV2.pairAddressMumbai;
+            //return UniswapContractContextV2.pairAddress;
         },
     },
     v3: {

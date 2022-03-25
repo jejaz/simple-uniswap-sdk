@@ -41,8 +41,8 @@ export const uniswapContracts = {
       ) {
         return cloneUniswapContractDetails.v2Override.pairAddress;
       }
-      console.log ("chain Id" + chainId)
-      return UniswapContractContextV2.pairAddress;
+      return chainId === ChainId.POLYGON ? UniswapContractContextV2.pairAddressPolygon : UniswapContractContextV2.pairAddressMumbai
+      //return UniswapContractContextV2.pairAddress;
     },
   },
   v3: {

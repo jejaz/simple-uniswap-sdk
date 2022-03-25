@@ -1,5 +1,6 @@
 import { UniswapContractContextV2 } from './uniswap-contract-context-v2';
 import { UniswapContractContextV3 } from './uniswap-contract-context-v3';
+import { ChainId } from "../enums/chain-id";
 export var uniswapContracts = {
     v2: {
         getRouterAddress: function (cloneUniswapContractDetails) {
@@ -21,8 +22,8 @@ export var uniswapContracts = {
                 cloneUniswapContractDetails.v2Override) {
                 return cloneUniswapContractDetails.v2Override.pairAddress;
             }
-            console.log("chain Id" + chainId);
-            return UniswapContractContextV2.pairAddress;
+            return chainId === ChainId.POLYGON ? UniswapContractContextV2.pairAddressPolygon : UniswapContractContextV2.pairAddressMumbai;
+            //return UniswapContractContextV2.pairAddress;
         },
     },
     v3: {
