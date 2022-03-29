@@ -1582,7 +1582,7 @@ export class UniswapRouterFactory {
 
     console.log('amount to trade ' + amountToTrade);
     console.log('second par ' + new BigNumber(expectedConvertQuoteOrTokenAmountInMaxWithSlippage));
-    console.log('sdk data ' + JSON.stringify(data))
+    console.log('direction ' + direction)
     const transaction = this.buildUpTransactionErc20(uniswapVersion, data);
 
     switch (uniswapVersion) {

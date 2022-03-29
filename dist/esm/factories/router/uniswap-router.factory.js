@@ -1095,7 +1095,7 @@ var UniswapRouterFactory = /** @class */ (function () {
             : this.generateTradeDataErc20ToErc20Output(new BigNumber(expectedConvertQuoteOrTokenAmountInMaxWithSlippage), amountToTrade, routeQuoteTradeContext, tradeExpires.toString());
         console.log('amount to trade ' + amountToTrade);
         console.log('second par ' + new BigNumber(expectedConvertQuoteOrTokenAmountInMaxWithSlippage));
-        console.log('sdk data ' + JSON.stringify(data));
+        console.log('direction ' + direction);
         var transaction = this.buildUpTransactionErc20(uniswapVersion, data);
         switch (uniswapVersion) {
             case UniswapVersion.v2:
