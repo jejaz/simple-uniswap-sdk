@@ -530,6 +530,9 @@ var UniswapRouterFactory = /** @class */ (function () {
         var amountOut = tokenAmountOut
             .shiftedBy(this._toToken.decimals)
             .decimalPlaces(0);
+        console.log('amount out ' + amountOut);
+        console.log('amount in max ' + amountInMax);
+        console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
         switch (routeQuoteTradeContext.uniswapVersion) {
             case uniswap_version_1.UniswapVersion.v2:
                 return this._uniswapRouterContractFactoryV2.swapTokensForExactTokens((0, hexlify_1.hexlify)(amountOut), (0, hexlify_1.hexlify)(amountInMax), routeQuoteTradeContext.routePathArray, this._ethereumAddress, deadline);
