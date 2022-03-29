@@ -504,7 +504,9 @@ var UniswapRouterFactory = /** @class */ (function () {
             .shiftedBy(this._toToken.decimals)
             .decimalPlaces(0);
         console.log('amount in ' + (0, hexlify_1.hexlify)(amountIn));
-        console.log('amount in max ' + (0, hexlify_1.hexlify)(amountMin));
+        console.log('amount min ' + (0, hexlify_1.hexlify)(amountMin));
+        console.log('amount in' + amountMin);
+        console.log('amount min ' + amountMin);
         console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
         console.log('address  ' + JSON.stringify(this._ethereumAddress));
         console.log('deadline ' + JSON.stringify(deadline));
@@ -534,6 +536,8 @@ var UniswapRouterFactory = /** @class */ (function () {
             .decimalPlaces(0);
         console.log('amount out ' + (0, hexlify_1.hexlify)(amountOut));
         console.log('amount in max ' + (0, hexlify_1.hexlify)(amountInMax));
+        console.log('amount out' + amountOut);
+        console.log('amountin  max ' + amountInMax);
         console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
         console.log('address  ' + JSON.stringify(this._ethereumAddress));
         console.log('deadline ' + JSON.stringify(deadline));
@@ -1109,9 +1113,6 @@ var UniswapRouterFactory = /** @class */ (function () {
         var data = direction === trade_direction_1.TradeDirection.input
             ? this.generateTradeDataErc20ToErc20Input(amountToTrade, new bignumber_js_1.default(expectedConvertQuoteOrTokenAmountInMaxWithSlippage), routeQuoteTradeContext, tradeExpires.toString())
             : this.generateTradeDataErc20ToErc20Output(new bignumber_js_1.default(expectedConvertQuoteOrTokenAmountInMaxWithSlippage), amountToTrade, routeQuoteTradeContext, tradeExpires.toString());
-        console.log('amount to trade ' + amountToTrade);
-        console.log('second par ' + new bignumber_js_1.default(expectedConvertQuoteOrTokenAmountInMaxWithSlippage));
-        console.log('direction ' + direction);
         var transaction = this.buildUpTransactionErc20(uniswapVersion, data);
         switch (uniswapVersion) {
             case uniswap_version_1.UniswapVersion.v2:

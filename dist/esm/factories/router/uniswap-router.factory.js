@@ -498,7 +498,9 @@ var UniswapRouterFactory = /** @class */ (function () {
             .shiftedBy(this._toToken.decimals)
             .decimalPlaces(0);
         console.log('amount in ' + hexlify(amountIn));
-        console.log('amount in max ' + hexlify(amountMin));
+        console.log('amount min ' + hexlify(amountMin));
+        console.log('amount in' + amountMin);
+        console.log('amount min ' + amountMin);
         console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
         console.log('address  ' + JSON.stringify(this._ethereumAddress));
         console.log('deadline ' + JSON.stringify(deadline));
@@ -528,6 +530,8 @@ var UniswapRouterFactory = /** @class */ (function () {
             .decimalPlaces(0);
         console.log('amount out ' + hexlify(amountOut));
         console.log('amount in max ' + hexlify(amountInMax));
+        console.log('amount out' + amountOut);
+        console.log('amountin  max ' + amountInMax);
         console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
         console.log('address  ' + JSON.stringify(this._ethereumAddress));
         console.log('deadline ' + JSON.stringify(deadline));
@@ -1103,9 +1107,6 @@ var UniswapRouterFactory = /** @class */ (function () {
         var data = direction === TradeDirection.input
             ? this.generateTradeDataErc20ToErc20Input(amountToTrade, new BigNumber(expectedConvertQuoteOrTokenAmountInMaxWithSlippage), routeQuoteTradeContext, tradeExpires.toString())
             : this.generateTradeDataErc20ToErc20Output(new BigNumber(expectedConvertQuoteOrTokenAmountInMaxWithSlippage), amountToTrade, routeQuoteTradeContext, tradeExpires.toString());
-        console.log('amount to trade ' + amountToTrade);
-        console.log('second par ' + new BigNumber(expectedConvertQuoteOrTokenAmountInMaxWithSlippage));
-        console.log('direction ' + direction);
         var transaction = this.buildUpTransactionErc20(uniswapVersion, data);
         switch (uniswapVersion) {
             case UniswapVersion.v2:

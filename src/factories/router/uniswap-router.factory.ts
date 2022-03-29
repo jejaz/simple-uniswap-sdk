@@ -670,7 +670,9 @@ export class UniswapRouterFactory {
       .decimalPlaces(0);
 
     console.log('amount in ' + hexlify(amountIn))
-    console.log('amount in max ' + hexlify(amountMin))
+    console.log('amount min ' + hexlify(amountMin))
+    console.log('amount in' + amountMin)
+    console.log('amount min ' + amountMin)
     console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray))
     console.log('address  ' + JSON.stringify( this._ethereumAddress))
     console.log('deadline '  + JSON.stringify(deadline))
@@ -723,6 +725,8 @@ export class UniswapRouterFactory {
 
     console.log('amount out ' + hexlify(amountOut))
     console.log('amount in max ' + hexlify(amountInMax))
+    console.log('amount out' + amountOut)
+    console.log('amountin  max ' + amountInMax)
     console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray))
     console.log('address  ' + JSON.stringify( this._ethereumAddress))
     console.log('deadline '  + JSON.stringify(deadline))
@@ -1591,10 +1595,6 @@ export class UniswapRouterFactory {
             routeQuoteTradeContext,
             tradeExpires.toString()
           );
-
-    console.log('amount to trade ' + amountToTrade);
-    console.log('second par ' + new BigNumber(expectedConvertQuoteOrTokenAmountInMaxWithSlippage));
-    console.log('direction ' + direction)
     const transaction = this.buildUpTransactionErc20(uniswapVersion, data);
 
     switch (uniswapVersion) {
