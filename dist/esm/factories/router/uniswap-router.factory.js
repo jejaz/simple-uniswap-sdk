@@ -497,6 +497,9 @@ var UniswapRouterFactory = /** @class */ (function () {
         var amountMin = tokenAmountMin
             .shiftedBy(this._toToken.decimals)
             .decimalPlaces(0);
+        console.log('amount in ' + amountIn);
+        console.log('amount min ' + amountMin);
+        console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
         switch (routeQuoteTradeContext.uniswapVersion) {
             case UniswapVersion.v2:
                 return this._uniswapRouterContractFactoryV2.swapExactTokensForTokens(hexlify(amountIn), hexlify(amountMin), routeQuoteTradeContext.routePathArray, this._ethereumAddress, deadline);
