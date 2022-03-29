@@ -671,7 +671,7 @@ export class UniswapRouterFactory {
 
     console.log('amount in ' + hexlify(amountIn))
     console.log('amount min ' + hexlify(amountMin))
-    console.log('amount in' + amountMin)
+    console.log('amount in' + amountIn)
     console.log('amount min ' + amountMin)
     console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray))
     console.log('address  ' + JSON.stringify( this._ethereumAddress))

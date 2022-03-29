@@ -505,7 +505,7 @@ var UniswapRouterFactory = /** @class */ (function () {
             .decimalPlaces(0);
         console.log('amount in ' + (0, hexlify_1.hexlify)(amountIn));
         console.log('amount min ' + (0, hexlify_1.hexlify)(amountMin));
-        console.log('amount in' + amountMin);
+        console.log('amount in' + amountIn);
         console.log('amount min ' + amountMin);
         console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
         console.log('address  ' + JSON.stringify(this._ethereumAddress));
