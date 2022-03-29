@@ -726,8 +726,8 @@ export class UniswapRouterFactory {
     switch (routeQuoteTradeContext.uniswapVersion) {
       case UniswapVersion.v2:
         return this._uniswapRouterContractFactoryV2.swapTokensForExactTokens(
-          hexlify(amountOut),
           hexlify(amountInMax),
+          hexlify(amountOut),
           routeQuoteTradeContext.routePathArray,
           this._ethereumAddress,
           deadline

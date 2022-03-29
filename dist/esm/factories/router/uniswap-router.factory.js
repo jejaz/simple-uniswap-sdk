@@ -529,7 +529,7 @@ var UniswapRouterFactory = /** @class */ (function () {
         console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
         switch (routeQuoteTradeContext.uniswapVersion) {
             case UniswapVersion.v2:
-                return this._uniswapRouterContractFactoryV2.swapTokensForExactTokens(hexlify(amountOut), hexlify(amountInMax), routeQuoteTradeContext.routePathArray, this._ethereumAddress, deadline);
+                return this._uniswapRouterContractFactoryV2.swapTokensForExactTokens(hexlify(amountInMax), hexlify(amountOut), routeQuoteTradeContext.routePathArray, this._ethereumAddress, deadline);
             case UniswapVersion.v3:
                 return this.generateTradeDataForV3Output(amountOut, amountInMax, routeQuoteTradeContext.liquidityProviderFee, deadline);
             default:
