@@ -726,7 +726,7 @@ export class UniswapRouterFactory {
     console.log('amount out ' + hexlify(amountOut))
     console.log('amount in max ' + hexlify(amountInMax))
     console.log('amount out' + amountOut)
-    console.log('amountin  max ' + amountInMax)
+    console.log('amount in  max ' + amountInMax)
     console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray))
     console.log('address  ' + JSON.stringify( this._ethereumAddress))
     console.log('deadline '  + JSON.stringify(deadline))
@@ -734,8 +734,8 @@ export class UniswapRouterFactory {
     switch (routeQuoteTradeContext.uniswapVersion) {
       case UniswapVersion.v2:
         return this._uniswapRouterContractFactoryV2.swapTokensForExactTokens(
-          hexlify(amountOut),
           hexlify(amountInMax),
+          hexlify(amountOut),
           routeQuoteTradeContext.routePathArray,
           this._ethereumAddress,
           deadline
