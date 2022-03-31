@@ -7,8 +7,8 @@ var UniswapPairSettings = /** @class */ (function () {
         this.gasSettings = undefined;
         this.cloneUniswapContractDetails = undefined;
         this.customNetwork = undefined;
-        this.slippage = (settings === null || settings === void 0 ? void 0 : settings.slippage) || 0.005;
-        this.deadlineMinutes = (settings === null || settings === void 0 ? void 0 : settings.deadlineMinutes) || 20;
+        this.slippage = (settings === null || settings === void 0 ? void 0 : settings.slippage) || 0.01;
+        this.deadlineMinutes = (settings === null || settings === void 0 ? void 0 : settings.deadlineMinutes) || 30;
         this.disableMultihops = (settings === null || settings === void 0 ? void 0 : settings.disableMultihops) || false;
         this.gasSettings = settings === null || settings === void 0 ? void 0 : settings.gasSettings;
         this.cloneUniswapContractDetails = settings === null || settings === void 0 ? void 0 : settings.cloneUniswapContractDetails;

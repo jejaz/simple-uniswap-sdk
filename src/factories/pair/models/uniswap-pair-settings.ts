@@ -23,8 +23,8 @@ export class UniswapPairSettings {
     cloneUniswapContractDetails?: CloneUniswapContractDetails | undefined;
     customNetwork?: CustomNetwork | undefined;
   }) {
-    this.slippage = settings?.slippage || 0.005;
-    this.deadlineMinutes = settings?.deadlineMinutes || 20;
+    this.slippage = settings?.slippage || 0.01;
+    this.deadlineMinutes = settings?.deadlineMinutes || 30;
     this.disableMultihops = settings?.disableMultihops || false;
     this.gasSettings = settings?.gasSettings;
     this.cloneUniswapContractDetails = settings?.cloneUniswapContractDetails;
