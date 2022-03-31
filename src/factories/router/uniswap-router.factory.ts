@@ -707,10 +707,12 @@ export class UniswapRouterFactory {
     deadline: string
   ): string {
     // uniswap adds extra digits on even if the token is say 8 digits long
-    const amountInMax = tokenAmountInMax.plus(tokenAmountInMax.div(100).multipliedBy(0.1))
+    console.log(tokenAmountInMax)
+    const amountInMax = tokenAmountInMax.plus(10)
       .shiftedBy(this._fromToken.decimals)
       .decimalPlaces(0);
 
+    console.log(hexlify(amountInMax))
     const amountOut = tokenAmountOut
       .shiftedBy(this._toToken.decimals)
       .decimalPlaces(0);
