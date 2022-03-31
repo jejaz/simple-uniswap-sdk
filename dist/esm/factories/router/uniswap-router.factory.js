@@ -497,13 +497,6 @@ var UniswapRouterFactory = /** @class */ (function () {
         var amountMin = tokenAmountMin
             .shiftedBy(this._toToken.decimals)
             .decimalPlaces(0);
-        console.log('amount in ' + hexlify(amountIn));
-        console.log('amount min ' + hexlify(amountMin));
-        console.log('amount in' + amountIn);
-        console.log('amount min ' + amountMin);
-        console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
-        console.log('address  ' + JSON.stringify(this._ethereumAddress));
-        console.log('deadline ' + JSON.stringify(deadline));
         switch (routeQuoteTradeContext.uniswapVersion) {
             case UniswapVersion.v2:
                 return this._uniswapRouterContractFactoryV2.swapExactTokensForTokens(hexlify(amountIn), hexlify(amountMin), routeQuoteTradeContext.routePathArray, this._ethereumAddress, deadline);
@@ -522,20 +515,12 @@ var UniswapRouterFactory = /** @class */ (function () {
      */
     UniswapRouterFactory.prototype.generateTradeDataErc20ToErc20Output = function (tokenAmountInMax, tokenAmountOut, routeQuoteTradeContext, deadline) {
         // uniswap adds extra digits on even if the token is say 8 digits long
-        console.log('big numberrrr' + tokenAmountInMax);
-        var amountInMax = tokenAmountInMax
+        var amountInMax = tokenAmountInMax.plus(5)
             .shiftedBy(this._fromToken.decimals)
             .decimalPlaces(0);
         var amountOut = tokenAmountOut
             .shiftedBy(this._toToken.decimals)
             .decimalPlaces(0);
-        console.log('amount out ' + hexlify(amountOut));
-        console.log('amount in max ' + hexlify(amountInMax));
-        console.log('amount out' + amountOut);
-        console.log('amount in  max ' + amountInMax);
-        console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray));
-        console.log('address  ' + JSON.stringify(this._ethereumAddress));
-        console.log('deadline ' + JSON.stringify(deadline));
         switch (routeQuoteTradeContext.uniswapVersion) {
             case UniswapVersion.v2:
                 return this._uniswapRouterContractFactoryV2.swapTokensForExactTokens(hexlify(amountOut), hexlify(amountInMax), routeQuoteTradeContext.routePathArray, this._ethereumAddress, deadline);

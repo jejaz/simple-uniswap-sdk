@@ -668,15 +668,7 @@ export class UniswapRouterFactory {
     const amountMin = tokenAmountMin
       .shiftedBy(this._toToken.decimals)
       .decimalPlaces(0);
-
-    console.log('amount in ' + hexlify(amountIn))
-    console.log('amount min ' + hexlify(amountMin))
-    console.log('amount in' + amountIn)
-    console.log('amount min ' + amountMin)
-    console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray))
-    console.log('address  ' + JSON.stringify( this._ethereumAddress))
-    console.log('deadline '  + JSON.stringify(deadline))
-
+    
     switch (routeQuoteTradeContext.uniswapVersion) {
       case UniswapVersion.v2:
         return this._uniswapRouterContractFactoryV2.swapExactTokensForTokens(
@@ -715,22 +707,13 @@ export class UniswapRouterFactory {
     deadline: string
   ): string {
     // uniswap adds extra digits on even if the token is say 8 digits long
-    console.log('big numberrrr' + tokenAmountInMax)
-    const amountInMax = tokenAmountInMax
+    const amountInMax = tokenAmountInMax.plus(5)
       .shiftedBy(this._fromToken.decimals)
       .decimalPlaces(0);
 
     const amountOut = tokenAmountOut
       .shiftedBy(this._toToken.decimals)
       .decimalPlaces(0);
-
-    console.log('amount out ' + hexlify(amountOut))
-    console.log('amount in max ' + hexlify(amountInMax))
-    console.log('amount out' + amountOut)
-    console.log('amount in  max ' + amountInMax)
-    console.log('route quote trade context  ' + JSON.stringify(routeQuoteTradeContext.routePathArray))
-    console.log('address  ' + JSON.stringify( this._ethereumAddress))
-    console.log('deadline '  + JSON.stringify(deadline))
 
     switch (routeQuoteTradeContext.uniswapVersion) {
       case UniswapVersion.v2:
