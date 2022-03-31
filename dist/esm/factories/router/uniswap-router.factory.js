@@ -208,7 +208,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                                     pairs: { fromTokenPairs: fromTokenPairs, toTokenPairs: toTokenPairs },
                                 });
                             }
-                            // console.log(JSON.stringify(allMainRoutes, null, 4));
                             allPossibleRoutes.v2 = this.workOutAllPossibleRoutes(fromTokenRoutes, toTokenRoutes, allMainRoutes);
                         }
                         if (this._settings.uniswapVersions.includes(UniswapVersion.v3)) {
@@ -235,7 +234,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                                 }
                             }
                         }
-                        // console.log(JSON.stringify(allPossibleRoutes, null, 4));
                         return [2 /*return*/, allPossibleRoutes];
                 }
             });

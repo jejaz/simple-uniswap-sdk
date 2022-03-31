@@ -122,8 +122,6 @@ export class UniswapRouterFactory {
       findPairs = [[[this._fromToken, this._toToken]]];
     }
 
-    // console.log(JSON.stringify(findPairs, null, 4));
-
     const contractCallContext: ContractCallContext[] = [];
 
     if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
@@ -209,8 +207,6 @@ export class UniswapRouterFactory {
           c.returnValues[0] !== '0x0000000000000000000000000000000000000000'
       );
 
-      // console.log(JSON.stringify(results.callsReturnContext, null, 4));
-
       const fromTokenRoutes: TokenRoutes = {
         token: this._fromToken,
         pairs: {
@@ -233,11 +229,6 @@ export class UniswapRouterFactory {
         },
       };
 
-      // console.log(JSON.stringify(fromTokenRoutes, null, 4));
-      // console.log('break');
-      // console.log(JSON.stringify(toTokenRoutes, null, 4));
-      // console.log('break');
-
       const allMainRoutes: TokenRoutes[] = [];
 
       for (let i = 0; i < this.allMainTokens.length; i++) {
@@ -258,8 +249,6 @@ export class UniswapRouterFactory {
           pairs: { fromTokenPairs, toTokenPairs },
         });
       }
-
-      // console.log(JSON.stringify(allMainRoutes, null, 4));
 
       allPossibleRoutes.v2 = this.workOutAllPossibleRoutes(
         fromTokenRoutes,
@@ -296,8 +285,6 @@ export class UniswapRouterFactory {
         }
       }
     }
-
-    // console.log(JSON.stringify(allPossibleRoutes, null, 4));
 
     return allPossibleRoutes;
   }
