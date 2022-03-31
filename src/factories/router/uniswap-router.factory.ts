@@ -668,7 +668,7 @@ export class UniswapRouterFactory {
     const amountMin = tokenAmountMin
       .shiftedBy(this._toToken.decimals)
       .decimalPlaces(0);
-    
+
     switch (routeQuoteTradeContext.uniswapVersion) {
       case UniswapVersion.v2:
         return this._uniswapRouterContractFactoryV2.swapExactTokensForTokens(
@@ -707,7 +707,7 @@ export class UniswapRouterFactory {
     deadline: string
   ): string {
     // uniswap adds extra digits on even if the token is say 8 digits long
-    const amountInMax = tokenAmountInMax.plus(5)
+    const amountInMax = tokenAmountInMax.plus(tokenAmountInMax.div(100).multipliedBy(0.05))
       .shiftedBy(this._fromToken.decimals)
       .decimalPlaces(0);
 
