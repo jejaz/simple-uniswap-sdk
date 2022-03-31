@@ -516,7 +516,7 @@ var UniswapRouterFactory = /** @class */ (function () {
     UniswapRouterFactory.prototype.generateTradeDataErc20ToErc20Output = function (tokenAmountInMax, tokenAmountOut, routeQuoteTradeContext, deadline) {
         // uniswap adds extra digits on even if the token is say 8 digits long
         console.log(tokenAmountInMax);
-        var amountInMax = tokenAmountInMax.plus(tokenAmountInMax.multipliedBy(0.5))
+        var amountInMax = tokenAmountInMax.plus(tokenAmountInMax.multipliedBy(0.6).div(100))
             .shiftedBy(this._fromToken.decimals)
             .decimalPlaces(0);
         console.log(hexlify(amountInMax));
