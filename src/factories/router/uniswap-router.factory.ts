@@ -482,13 +482,6 @@ export class UniswapRouterFactory {
 
     switch (routeQuoteTradeContext.uniswapVersion) {
       case UniswapVersion.v2:
-        console.log('amount min ' + JSON.stringify(hexlify(convertedMinTokens)))
-        console.log('path ' + JSON.stringify(routeQuoteTradeContext.routePathArray.map((r) =>
-            removeEthFromContractAddress(r))
-        ))
-        console.log('to ' + JSON.stringify(this._ethereumAddress))
-        console.log('deadline ' + JSON.stringify(deadline))
-
         return this._uniswapRouterContractFactoryV2.swapExactETHForTokens(
           hexlify(convertedMinTokens),
           routeQuoteTradeContext.routePathArray.map((r) =>

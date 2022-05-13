@@ -409,12 +409,6 @@ var UniswapRouterFactory = /** @class */ (function () {
             .decimalPlaces(0);
         switch (routeQuoteTradeContext.uniswapVersion) {
             case uniswap_version_1.UniswapVersion.v2:
-                console.log('amount min ' + JSON.stringify((0, hexlify_1.hexlify)(convertedMinTokens)));
-                console.log('path ' + JSON.stringify(routeQuoteTradeContext.routePathArray.map(function (r) {
-                    return (0, eth_1.removeEthFromContractAddress)(r);
-                })));
-                console.log('to ' + JSON.stringify(this._ethereumAddress));
-                console.log('deadline ' + JSON.stringify(deadline));
                 return this._uniswapRouterContractFactoryV2.swapExactETHForTokens((0, hexlify_1.hexlify)(convertedMinTokens), routeQuoteTradeContext.routePathArray.map(function (r) {
                     return (0, eth_1.removeEthFromContractAddress)(r);
                 }), this._ethereumAddress, deadline);
