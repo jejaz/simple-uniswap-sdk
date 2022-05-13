@@ -126,6 +126,7 @@ export class UniswapPairFactory {
     amount: BigNumber,
     direction: TradeDirection
   ): Promise<TradeContext> {
+    console.log('trade path ' + JSON.stringify(this.tradePath()))
     switch (this.tradePath()) {
       case TradePath.erc20ToEth:
         return await this.findBestPriceAndPathErc20ToEth(amount, direction);
