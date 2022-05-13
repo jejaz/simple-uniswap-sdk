@@ -147,7 +147,6 @@ var UniswapPairFactory = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        console.log('trade path ' + JSON.stringify(this.tradePath()));
                         _a = this.tradePath();
                         switch (_a) {
                             case TradePath.erc20ToEth: return [3 /*break*/, 1];

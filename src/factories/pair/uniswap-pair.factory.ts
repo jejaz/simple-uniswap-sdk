@@ -126,7 +126,6 @@ export class UniswapPairFactory {
     amount: BigNumber,
     direction: TradeDirection
   ): Promise<TradeContext> {
-    console.log('trade path ' + JSON.stringify(this.tradePath()))
     switch (this.tradePath()) {
       case TradePath.erc20ToEth:
         return await this.findBestPriceAndPathErc20ToEth(amount, direction);
@@ -458,6 +457,8 @@ export class UniswapPairFactory {
       direction
     );
     const bestRouteQuote = bestRouteQuotes.bestRouteQuote;
+
+    //TODO: matic wmatic wrap - here is problem
 
     const tradeContext: TradeContext = {
       uniswapVersion: bestRouteQuote.uniswapVersion,
