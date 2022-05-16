@@ -2026,7 +2026,7 @@ export class UniswapRouterFactory {
       const tokens: (Token | undefined)[] = [
         this.MaticTokenForConnectedNetwork,
       ];
-
+      console.log("tokens" + JSON.stringify(tokens))
       return tokens.filter((t) => t !== undefined) as Token[];
     }
 

@@ -326,7 +326,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.getAllPossibleRoutesWithQuotes(amountToTrade, direction)];
                     case 1:
                         allRoutes = _a.sent();
-                        //TODO: here is a problem
                         console.log('all routes' + JSON.stringify(allRoutes));
                         if (allRoutes.length === 0) {
                             throw new UniswapError("No routes found for ".concat(this._fromToken.symbol, " > ").concat(this._toToken.symbol), ErrorCodes.noRoutesFound);
@@ -1415,6 +1414,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                 var tokens = [
                     this.MaticTokenForConnectedNetwork,
                 ];
+                console.log("tokens" + JSON.stringify(tokens));
                 return tokens.filter(function (t) { return t !== undefined; });
             }
             return [this.WETHTokenForConnectedNetwork];
