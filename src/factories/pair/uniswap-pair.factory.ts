@@ -460,6 +460,7 @@ export class UniswapPairFactory {
       baseConvertRequest,
       direction
     );
+    console.log(JSON.stringify(bestRouteQuotes))
     console.log(' after best routee');
     const bestRouteQuote = bestRouteQuotes.bestRouteQuote;
 

@@ -506,6 +506,7 @@ var UniswapPairFactory = /** @class */ (function () {
                         return [4 /*yield*/, this._routes.findBestRoute(baseConvertRequest, direction)];
                     case 1:
                         bestRouteQuotes = _c.sent();
+                        console.log(JSON.stringify(bestRouteQuotes));
                         console.log(' after best routee');
                         bestRouteQuote = bestRouteQuotes.bestRouteQuote;
                         tradeContext = {
