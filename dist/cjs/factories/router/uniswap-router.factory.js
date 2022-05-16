@@ -124,6 +124,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                             // multihops turned off so only go direct
                             findPairs = [[[this._fromToken, this._toToken]]];
                         }
+                        console.log('pairs' + JSON.stringify(findPairs));
                         contractCallContext = [];
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v2)) {
                             contractCallContext.push({
@@ -270,7 +271,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                                 calls: [],
                                 context: routes.v2,
                             });
-                            console.log('before for loop');
                             for (i = 0; i < routes.v2.length; i++) {
                                 routeCombo = routes.v2[i].route.map(function (c) {
                                     return (0, eth_1.removeEthFromContractAddress)(c.contractAddress);
@@ -1420,7 +1420,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                 var tokens = [
                     this.MaticTokenForConnectedNetwork,
                 ];
-                console.log("tokens" + JSON.stringify(tokens));
                 return tokens.filter(function (t) { return t !== undefined; });
             }
             return [this.WETHTokenForConnectedNetwork];

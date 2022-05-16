@@ -122,6 +122,7 @@ export class UniswapRouterFactory {
       findPairs = [[[this._fromToken, this._toToken]]];
     }
 
+    console.log('pairs' + JSON.stringify(findPairs))
     const contractCallContext: ContractCallContext[] = [];
 
     if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
@@ -298,10 +299,8 @@ export class UniswapRouterFactory {
     amountToTrade: BigNumber,
     direction: TradeDirection
   ): Promise<RouteQuote[]> {
-    //TODO: here is a problem
-
     const tradeAmount = this.formatAmountToTrade(amountToTrade, direction);
-
+    //TODO: here is a problem
     const routes = await this.getAllPossibleRoutes();
 
     console.log('routes' + JSON.stringify(routes))
@@ -317,7 +316,6 @@ export class UniswapRouterFactory {
         context: routes.v2,
       });
 
-      console.log('before for loop')
       for (let i = 0; i < routes.v2.length; i++) {
         const routeCombo = routes.v2[i].route.map((c) => {
           return removeEthFromContractAddress(c.contractAddress);
@@ -391,7 +389,6 @@ export class UniswapRouterFactory {
       amountToTrade,
       direction
     );
-
     console.log('all routes' + JSON.stringify(allRoutes))
     if (allRoutes.length === 0) {
       throw new UniswapError(
@@ -2026,7 +2023,6 @@ export class UniswapRouterFactory {
       const tokens: (Token | undefined)[] = [
         this.MaticTokenForConnectedNetwork,
       ];
-      console.log("tokens" + JSON.stringify(tokens))
       return tokens.filter((t) => t !== undefined) as Token[];
     }
 
