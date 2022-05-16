@@ -454,14 +454,10 @@ export class UniswapPairFactory {
     direction: TradeDirection
   ): Promise<TradeContext> {
     //TODO: matic wmatic wrap - here is problem
-    console.log(' before best routee');
-    console.log(JSON.stringify(baseConvertRequest))
     const bestRouteQuotes = await this._routes.findBestRoute(
       baseConvertRequest,
       direction
     );
-    console.log(JSON.stringify(bestRouteQuotes))
-    console.log(' after best routee');
     const bestRouteQuote = bestRouteQuotes.bestRouteQuote;
 
     const tradeContext: TradeContext = {

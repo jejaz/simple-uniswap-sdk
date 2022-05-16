@@ -384,11 +384,13 @@ export class UniswapRouterFactory {
     amountToTrade: BigNumber,
     direction: TradeDirection
   ): Promise<BestRouteQuotes> {
+    console.log('begin find best route');
     let allRoutes = await this.getAllPossibleRoutesWithQuotes(
       amountToTrade,
       direction
     );
 
+    console.log('all routes' + JSON.stringify(allRoutes))
     if (allRoutes.length === 0) {
       throw new UniswapError(
         `No routes found for ${this._fromToken.symbol} > ${this._toToken.symbol}`,
@@ -401,6 +403,7 @@ export class UniswapRouterFactory {
       allRoutes[0],
       direction
     );
+    console.log('allowance and balance ' + JSON.stringify(allowanceAndBalances))
 
     if (
       this._ethersProvider.provider.network.chainId === ChainId.MAINNET &&

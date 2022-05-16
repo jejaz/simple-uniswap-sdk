@@ -499,15 +499,9 @@ var UniswapPairFactory = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_c) {
                 switch (_c.label) {
-                    case 0:
-                        //TODO: matic wmatic wrap - here is problem
-                        console.log(' before best routee');
-                        console.log(JSON.stringify(baseConvertRequest));
-                        return [4 /*yield*/, this._routes.findBestRoute(baseConvertRequest, direction)];
+                    case 0: return [4 /*yield*/, this._routes.findBestRoute(baseConvertRequest, direction)];
                     case 1:
                         bestRouteQuotes = _c.sent();
-                        console.log(JSON.stringify(bestRouteQuotes));
-                        console.log(' after best routee');
                         bestRouteQuote = bestRouteQuotes.bestRouteQuote;
                         tradeContext = {
                             uniswapVersion: bestRouteQuote.uniswapVersion,
