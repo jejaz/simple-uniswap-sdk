@@ -260,6 +260,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                         return [4 /*yield*/, this.getAllPossibleRoutes()];
                     case 1:
                         routes = _a.sent();
+                        console.log('routes' + JSON.stringify(routes));
                         contractCallContext = [];
                         if (this._settings.uniswapVersions.includes(uniswap_version_1.UniswapVersion.v2)) {
                             contractCallContext.push({
@@ -269,6 +270,7 @@ var UniswapRouterFactory = /** @class */ (function () {
                                 calls: [],
                                 context: routes.v2,
                             });
+                            console.log('before for loop');
                             for (i = 0; i < routes.v2.length; i++) {
                                 routeCombo = routes.v2[i].route.map(function (c) {
                                     return (0, eth_1.removeEthFromContractAddress)(c.contractAddress);
@@ -327,11 +329,10 @@ var UniswapRouterFactory = /** @class */ (function () {
             var allRoutes, allowanceAndBalances;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log('begin find best route');
-                        return [4 /*yield*/, this.getAllPossibleRoutesWithQuotes(amountToTrade, direction)];
+                    case 0: return [4 /*yield*/, this.getAllPossibleRoutesWithQuotes(amountToTrade, direction)];
                     case 1:
                         allRoutes = _a.sent();
+                        //TODO: here is a problem
                         console.log('all routes' + JSON.stringify(allRoutes));
                         if (allRoutes.length === 0) {
                             throw new uniswap_error_1.UniswapError("No routes found for ".concat(this._fromToken.symbol, " > ").concat(this._toToken.symbol), error_codes_1.ErrorCodes.noRoutesFound);
@@ -339,7 +340,6 @@ var UniswapRouterFactory = /** @class */ (function () {
                         return [4 /*yield*/, this.hasEnoughAllowanceAndBalance(amountToTrade, allRoutes[0], direction)];
                     case 2:
                         allowanceAndBalances = _a.sent();
-                        console.log('allowance and balance ' + JSON.stringify(allowanceAndBalances));
                         if (!(this._ethersProvider.provider.network.chainId === chain_id_1.ChainId.MAINNET &&
                             this._settings.gasSettings &&
                             allowanceAndBalances.enoughBalance)) return [3 /*break*/, 4];

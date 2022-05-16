@@ -126,7 +126,6 @@ export class UniswapPairFactory {
     amount: BigNumber,
     direction: TradeDirection
   ): Promise<TradeContext> {
-    console.log(this.tradePath());
     switch (this.tradePath()) {
       case TradePath.erc20ToEth:
         return await this.findBestPriceAndPathErc20ToEth(amount, direction);
@@ -453,7 +452,6 @@ export class UniswapPairFactory {
     baseConvertRequest: BigNumber,
     direction: TradeDirection
   ): Promise<TradeContext> {
-    //TODO: matic wmatic wrap - here is problem
     const bestRouteQuotes = await this._routes.findBestRoute(
       baseConvertRequest,
       direction

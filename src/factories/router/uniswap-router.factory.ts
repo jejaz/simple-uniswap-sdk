@@ -298,11 +298,13 @@ export class UniswapRouterFactory {
     amountToTrade: BigNumber,
     direction: TradeDirection
   ): Promise<RouteQuote[]> {
+    //TODO: here is a problem
+
     const tradeAmount = this.formatAmountToTrade(amountToTrade, direction);
 
     const routes = await this.getAllPossibleRoutes();
 
-
+    console.log('routes' + JSON.stringify(routes))
     const contractCallContext: ContractCallContext<RouteContext[]>[] = [];
     if (this._settings.uniswapVersions.includes(UniswapVersion.v2)) {
       contractCallContext.push({
@@ -315,6 +317,7 @@ export class UniswapRouterFactory {
         context: routes.v2,
       });
 
+      console.log('before for loop')
       for (let i = 0; i < routes.v2.length; i++) {
         const routeCombo = routes.v2[i].route.map((c) => {
           return removeEthFromContractAddress(c.contractAddress);
@@ -384,7 +387,6 @@ export class UniswapRouterFactory {
     amountToTrade: BigNumber,
     direction: TradeDirection
   ): Promise<BestRouteQuotes> {
-    console.log('begin find best route');
     let allRoutes = await this.getAllPossibleRoutesWithQuotes(
       amountToTrade,
       direction
@@ -403,7 +405,6 @@ export class UniswapRouterFactory {
       allRoutes[0],
       direction
     );
-    console.log('allowance and balance ' + JSON.stringify(allowanceAndBalances))
 
     if (
       this._ethersProvider.provider.network.chainId === ChainId.MAINNET &&
