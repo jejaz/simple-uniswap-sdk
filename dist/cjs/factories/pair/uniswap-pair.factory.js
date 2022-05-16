@@ -505,12 +505,14 @@ var UniswapPairFactory = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_c) {
                 switch (_c.label) {
-                    case 0: return [4 /*yield*/, this._routes.findBestRoute(baseConvertRequest, direction)];
+                    case 0:
+                        //TODO: matic wmatic wrap - here is problem
+                        console.log(' before best routee');
+                        return [4 /*yield*/, this._routes.findBestRoute(baseConvertRequest, direction)];
                     case 1:
                         bestRouteQuotes = _c.sent();
+                        console.log(' after best routee');
                         bestRouteQuote = bestRouteQuotes.bestRouteQuote;
-                        //TODO: matic wmatic wrap - here is problem
-                        console.log('before trade context');
                         tradeContext = {
                             uniswapVersion: bestRouteQuote.uniswapVersion,
                             quoteDirection: direction,
@@ -552,7 +554,6 @@ var UniswapPairFactory = /** @class */ (function () {
                             quoteChanged$: this._quoteChanged$,
                             destroy: function () { return _this.destroy(); },
                         };
-                        console.log('after trade context');
                         return [2 /*return*/, tradeContext];
                 }
             });

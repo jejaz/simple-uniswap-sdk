@@ -453,15 +453,15 @@ export class UniswapPairFactory {
     baseConvertRequest: BigNumber,
     direction: TradeDirection
   ): Promise<TradeContext> {
+    //TODO: matic wmatic wrap - here is problem
+    console.log(' before best routee');
     const bestRouteQuotes = await this._routes.findBestRoute(
       baseConvertRequest,
       direction
     );
+    console.log(' after best routee');
     const bestRouteQuote = bestRouteQuotes.bestRouteQuote;
 
-    //TODO: matic wmatic wrap - here is problem
-
-    console.log('before trade context');
     const tradeContext: TradeContext = {
       uniswapVersion: bestRouteQuote.uniswapVersion,
       quoteDirection: direction,
@@ -509,7 +509,6 @@ export class UniswapPairFactory {
       quoteChanged$: this._quoteChanged$,
       destroy: () => this.destroy(),
     };
-    console.log('after trade context');
     return tradeContext;
   }
 
