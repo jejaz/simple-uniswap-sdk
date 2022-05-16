@@ -455,6 +455,7 @@ export class UniswapPairFactory {
   ): Promise<TradeContext> {
     //TODO: matic wmatic wrap - here is problem
     console.log(' before best routee');
+    console.log(JSON.stringify(baseConvertRequest))
     const bestRouteQuotes = await this._routes.findBestRoute(
       baseConvertRequest,
       direction

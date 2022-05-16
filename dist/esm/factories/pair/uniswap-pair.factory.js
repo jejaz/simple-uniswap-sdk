@@ -502,6 +502,7 @@ var UniswapPairFactory = /** @class */ (function () {
                     case 0:
                         //TODO: matic wmatic wrap - here is problem
                         console.log(' before best routee');
+                        console.log(JSON.stringify(baseConvertRequest));
                         return [4 /*yield*/, this._routes.findBestRoute(baseConvertRequest, direction)];
                     case 1:
                         bestRouteQuotes = _c.sent();
