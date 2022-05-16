@@ -508,6 +508,8 @@ var UniswapPairFactory = /** @class */ (function () {
                     case 1:
                         bestRouteQuotes = _c.sent();
                         bestRouteQuote = bestRouteQuotes.bestRouteQuote;
+                        //TODO: matic wmatic wrap - here is problem
+                        console.log('before trade context');
                         tradeContext = {
                             uniswapVersion: bestRouteQuote.uniswapVersion,
                             quoteDirection: direction,
@@ -549,6 +551,7 @@ var UniswapPairFactory = /** @class */ (function () {
                             quoteChanged$: this._quoteChanged$,
                             destroy: function () { return _this.destroy(); },
                         };
+                        console.log('after trade context');
                         return [2 /*return*/, tradeContext];
                 }
             });

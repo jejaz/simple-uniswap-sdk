@@ -460,6 +460,7 @@ export class UniswapPairFactory {
 
     //TODO: matic wmatic wrap - here is problem
 
+    console.log('before trade context');
     const tradeContext: TradeContext = {
       uniswapVersion: bestRouteQuote.uniswapVersion,
       quoteDirection: direction,
@@ -507,7 +508,7 @@ export class UniswapPairFactory {
       quoteChanged$: this._quoteChanged$,
       destroy: () => this.destroy(),
     };
-
+    console.log('after trade context');
     return tradeContext;
   }
 
